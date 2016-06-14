@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84FB968C1D10277100E1F72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB968B1D10277100E1F72B /* AppDelegate.swift */; };
+		84FB968E1D10277100E1F72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB968D1D10277100E1F72B /* ViewController.swift */; };
+		84FB96911D10277100E1F72B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB968F1D10277100E1F72B /* Main.storyboard */; };
+		84FB96931D10277100E1F72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FB96921D10277100E1F72B /* Assets.xcassets */; };
+		84FB96961D10277100E1F72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB96941D10277100E1F72B /* LaunchScreen.storyboard */; };
+		84FB96A11D10277100E1F72B /* RakshaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB96A01D10277100E1F72B /* RakshaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84FB969D1D10277100E1F72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84FB96801D10277000E1F72B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84FB96871D10277000E1F72B;
+			remoteInfo = Raksha;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84FB96881D10277000E1F72B /* Raksha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raksha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FB968B1D10277100E1F72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84FB968D1D10277100E1F72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84FB96901D10277100E1F72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84FB96921D10277100E1F72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84FB96951D10277100E1F72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84FB96971D10277100E1F72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FB969C1D10277100E1F72B /* RakshaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RakshaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FB96A01D10277100E1F72B /* RakshaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakshaTests.swift; sourceTree = "<group>"; };
+		84FB96A21D10277100E1F72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84FB96851D10277000E1F72B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FB96991D10277100E1F72B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84FB967F1D10277000E1F72B = {
+			isa = PBXGroup;
+			children = (
+				84FB968A1D10277100E1F72B /* Raksha */,
+				84FB969F1D10277100E1F72B /* RakshaTests */,
+				84FB96891D10277000E1F72B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84FB96891D10277000E1F72B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84FB96881D10277000E1F72B /* Raksha.app */,
+				84FB969C1D10277100E1F72B /* RakshaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84FB968A1D10277100E1F72B /* Raksha */ = {
+			isa = PBXGroup;
+			children = (
+				84FB968B1D10277100E1F72B /* AppDelegate.swift */,
+				84FB968D1D10277100E1F72B /* ViewController.swift */,
+				84FB968F1D10277100E1F72B /* Main.storyboard */,
+				84FB96921D10277100E1F72B /* Assets.xcassets */,
+				84FB96941D10277100E1F72B /* LaunchScreen.storyboard */,
+				84FB96971D10277100E1F72B /* Info.plist */,
+			);
+			path = Raksha;
+			sourceTree = "<group>";
+		};
+		84FB969F1D10277100E1F72B /* RakshaTests */ = {
+			isa = PBXGroup;
+			children = (
+				84FB96A01D10277100E1F72B /* RakshaTests.swift */,
+				84FB96A21D10277100E1F72B /* Info.plist */,
+			);
+			path = RakshaTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84FB96871D10277000E1F72B /* Raksha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84FB96A51D10277100E1F72B /* Build configuration list for PBXNativeTarget "Raksha" */;
+			buildPhases = (
+				84FB96841D10277000E1F72B /* Sources */,
+				84FB96851D10277000E1F72B /* Frameworks */,
+				84FB96861D10277000E1F72B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Raksha;
+			productName = Raksha;
+			productReference = 84FB96881D10277000E1F72B /* Raksha.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84FB969B1D10277100E1F72B /* RakshaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84FB96A81D10277100E1F72B /* Build configuration list for PBXNativeTarget "RakshaTests" */;
+			buildPhases = (
+				84FB96981D10277100E1F72B /* Sources */,
+				84FB96991D10277100E1F72B /* Frameworks */,
+				84FB969A1D10277100E1F72B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84FB969E1D10277100E1F72B /* PBXTargetDependency */,
+			);
+			name = RakshaTests;
+			productName = RakshaTests;
+			productReference = 84FB969C1D10277100E1F72B /* RakshaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84FB96801D10277000E1F72B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = maximus;
+				TargetAttributes = {
+					84FB96871D10277000E1F72B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					84FB969B1D10277100E1F72B = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 84FB96871D10277000E1F72B;
+					};
+				};
+			};
+			buildConfigurationList = 84FB96831D10277000E1F72B /* Build configuration list for PBXProject "Raksha" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84FB967F1D10277000E1F72B;
+			productRefGroup = 84FB96891D10277000E1F72B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84FB96871D10277000E1F72B /* Raksha */,
+				84FB969B1D10277100E1F72B /* RakshaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84FB96861D10277000E1F72B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FB96961D10277100E1F72B /* LaunchScreen.storyboard in Resources */,
+				84FB96931D10277100E1F72B /* Assets.xcassets in Resources */,
+				84FB96911D10277100E1F72B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FB969A1D10277100E1F72B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84FB96841D10277000E1F72B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FB968E1D10277100E1F72B /* ViewController.swift in Sources */,
+				84FB968C1D10277100E1F72B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FB96981D10277100E1F72B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FB96A11D10277100E1F72B /* RakshaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84FB969E1D10277100E1F72B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84FB96871D10277000E1F72B /* Raksha */;
+			targetProxy = 84FB969D1D10277100E1F72B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84FB968F1D10277100E1F72B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84FB96901D10277100E1F72B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84FB96941D10277100E1F72B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84FB96951D10277100E1F72B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84FB96A31D10277100E1F72B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84FB96A41D10277100E1F72B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84FB96A61D10277100E1F72B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Raksha/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximus.Raksha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84FB96A71D10277100E1F72B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Raksha/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximus.Raksha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		84FB96A91D10277100E1F72B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RakshaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximus.RakshaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Raksha.app/Raksha";
+			};
+			name = Debug;
+		};
+		84FB96AA1D10277100E1F72B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RakshaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximus.RakshaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Raksha.app/Raksha";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84FB96831D10277000E1F72B /* Build configuration list for PBXProject "Raksha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FB96A31D10277100E1F72B /* Debug */,
+				84FB96A41D10277100E1F72B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84FB96A51D10277100E1F72B /* Build configuration list for PBXNativeTarget "Raksha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FB96A61D10277100E1F72B /* Debug */,
+				84FB96A71D10277100E1F72B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		84FB96A81D10277100E1F72B /* Build configuration list for PBXNativeTarget "RakshaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FB96A91D10277100E1F72B /* Debug */,
+				84FB96AA1D10277100E1F72B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84FB96801D10277000E1F72B /* Project object */;
+}
