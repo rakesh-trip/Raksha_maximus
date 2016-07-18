@@ -8,17 +8,73 @@
 
 import UIKit
 
-@UIApplicationMain
+var DeviceReferenceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
+var systemVersion = UIDevice.currentDevice().systemVersion
+var systemName = UIDevice.currentDevice().systemName
+var deviceName = UIDevice.currentDevice().name
+
+let defaults = NSUserDefaults.standardUserDefaults()
+let MyKeychain = KeychainWrapper()
+let MyKeychain1 = KeychainWrapper()
+var baseUrl = "http://125.99.113.202:8777/"
+
+var timer = NSTimer()
+
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var isReachable:Bool!
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let string = "\"hello[]" // string starts as "hello[]
+        let badchar: NSCharacterSet = NSCharacterSet(charactersInString: "\"[]")
+        let cleanedstring: NSString = (string.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
+        print(cleanedstring)
+        
+        print(systemVersion)
+        print(systemName)
+        print(deviceName)
+        // alternatively: let output = CryptoSwift.Hash.md5(input).calculate()
+        if deviceName == "iPhone Simulator"
+        {
+            DeviceReferenceID = "88B0BA86-8599-401D-9EEF-374D5BD4BCAD"
+            print(DeviceReferenceID)
+        }
+        else{
+            print("AppDelegate UUID is * * * * * * * * * * * " + DeviceReferenceID)
+        }
         // Override point for customization after application launch.
+        defaults.boolForKey("launchedBefore")
+        if (defaults.boolForKey("launchedBefore"))  {
+            print("Not first launch.")
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyBoard.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+            
+
+
+        }
+        else {
+            print("First launch, setting NSUserDefault.")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
+        }
+        if Reachability.isConnectedToNetwork() == true
+        {
+            print("Internet Connection OK")
+        }
+        else
+        {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
         return true
     }
-
+    
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -7,12 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3EC4351D2D069900D29AE1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC4341D2D069900D29AE1 /* main.swift */; };
+		7C3EC4371D2D06B600D29AE1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC4361D2D06B600D29AE1 /* UIApplication.swift */; };
+		7C3EC43B1D2D193B00D29AE1 /* TransactionPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC43A1D2D193B00D29AE1 /* TransactionPasswordViewController.swift */; };
+		7C3EC43D1D2D21B400D29AE1 /* forgotTransactonpwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC43C1D2D21B400D29AE1 /* forgotTransactonpwViewController.swift */; };
+		7C97AF3E1D2A7CFA0049A3D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C97AF3D1D2A7CFA0049A3D5 /* Main.storyboard */; };
+		7DDE6DE49FFCCE78CEF8AFC1 /* Pods_Raksha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881D9B66B5C3DEFC3BA35560 /* Pods_Raksha.framework */; };
+		8408B0231D13F2E300FDE581 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0221D13F2E300FDE581 /* PasswordViewController.swift */; };
+		8408B0251D13F3F200FDE581 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0241D13F3F200FDE581 /* WelcomeViewController.swift */; };
+		8408B0271D13F54D00FDE581 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0261D13F54D00FDE581 /* LoginViewController.swift */; };
+		8408B0291D13F56F00FDE581 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0281D13F56F00FDE581 /* DashboardViewController.swift */; };
+		8408B02B1D13F58800FDE581 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B02A1D13F58800FDE581 /* ForgotPasswordView.swift */; };
+		8408B02D1D13F5D700FDE581 /* EDCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B02C1D13F5D700FDE581 /* EDCardViewController.swift */; };
+		8408B02F1D13F5E700FDE581 /* SpendLimitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B02E1D13F5E700FDE581 /* SpendLimitViewController.swift */; };
+		8408B0311D13F60300FDE581 /* SelectCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0301D13F60300FDE581 /* SelectCardViewController.swift */; };
+		8408B0331D13F62400FDE581 /* EDChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0321D13F62400FDE581 /* EDChannelViewController.swift */; };
+		8408B0351D13FCA400FDE581 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408B0341D13FCA400FDE581 /* CustomCell.swift */; };
+		840D21201D20FEB3009D28F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D211F1D20FEB3009D28F0 /* Reachability.swift */; };
+		840D21221D2100CF009D28F0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D21211D2100CF009D28F0 /* SystemConfiguration.framework */; };
+		842044E31D1A9BE10059E7C0 /* WebServicesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842044E21D1A9BE10059E7C0 /* WebServicesHelper.swift */; };
+		8456AAED1D25419D00D0E67A /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456AAEC1D25419D00D0E67A /* KeychainWrapper.m */; };
+		84D16DBB1D154589005B0254 /* LatestTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D16DBA1D154589005B0254 /* LatestTransactionsViewController.swift */; };
+		84DE39921D111FC9008F101F /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DE39911D111FC9008F101F /* right-arrow.png */; };
+		84DE39941D114F43008F101F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE39931D114F43008F101F /* SignUpViewController.swift */; };
+		84DE39961D11587A008F101F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DE39951D11587A008F101F /* back.png */; };
+		84DE39981D1184E9008F101F /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE39971D1184E9008F101F /* OTPViewController.swift */; };
+		84DE399A1D118AD1008F101F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE39991D118AD1008F101F /* SignInViewController.swift */; };
+		84E2213D1D1289460094DEB1 /* settings.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84E2213C1D1289460094DEB1 /* settings.jpeg */; };
+		84E2213F1D128AF80094DEB1 /* logout.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84E2213E1D128AF80094DEB1 /* logout.jpeg */; };
+		84F9AB7B1D13CF9B008BFC5A /* raksha (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 84F9AB7A1D13CF9B008BFC5A /* raksha (2).png */; };
 		84FB968C1D10277100E1F72B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB968B1D10277100E1F72B /* AppDelegate.swift */; };
-		84FB968E1D10277100E1F72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB968D1D10277100E1F72B /* ViewController.swift */; };
-		84FB96911D10277100E1F72B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB968F1D10277100E1F72B /* Main.storyboard */; };
+		84FB968E1D10277100E1F72B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB968D1D10277100E1F72B /* RegistrationViewController.swift */; };
 		84FB96931D10277100E1F72B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FB96921D10277100E1F72B /* Assets.xcassets */; };
 		84FB96961D10277100E1F72B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB96941D10277100E1F72B /* LaunchScreen.storyboard */; };
 		84FB96A11D10277100E1F72B /* RakshaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB96A01D10277100E1F72B /* RakshaTests.swift */; };
+		84FB96AC1D1035E100E1F72B /* raksha.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB96AB1D1035E100E1F72B /* raksha.png */; };
+		FE551651171E38681930963F /* Pods_RakshaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D063F8FE0F17424D21293AF0 /* Pods_RakshaTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +55,66 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		843F16021D2243C20095216F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3C85760307F19ED8BABCA199 /* Pods-Raksha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raksha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raksha/Pods-Raksha.debug.xcconfig"; sourceTree = "<group>"; };
+		7C3EC4341D2D069900D29AE1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7C3EC4361D2D06B600D29AE1 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		7C3EC43A1D2D193B00D29AE1 /* TransactionPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPasswordViewController.swift; sourceTree = "<group>"; };
+		7C3EC43C1D2D21B400D29AE1 /* forgotTransactonpwViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forgotTransactonpwViewController.swift; sourceTree = "<group>"; };
+		7C97AF3D1D2A7CFA0049A3D5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8408B0221D13F2E300FDE581 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		8408B0241D13F3F200FDE581 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8408B0261D13F54D00FDE581 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8408B0281D13F56F00FDE581 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		8408B02A1D13F58800FDE581 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		8408B02C1D13F5D700FDE581 /* EDCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDCardViewController.swift; sourceTree = "<group>"; };
+		8408B02E1D13F5E700FDE581 /* SpendLimitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendLimitViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
+		8408B0301D13F60300FDE581 /* SelectCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCardViewController.swift; sourceTree = "<group>"; };
+		8408B0321D13F62400FDE581 /* EDChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDChannelViewController.swift; sourceTree = "<group>"; };
+		8408B0341D13FCA400FDE581 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		840D211F1D20FEB3009D28F0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		840D21211D2100CF009D28F0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		842044DD1D1A58910059E7C0 /* Raksha-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Raksha-Bridging-Header.h"; sourceTree = "<group>"; };
+		842044E21D1A9BE10059E7C0 /* WebServicesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServicesHelper.swift; sourceTree = "<group>"; };
+		8456AAEB1D25419D00D0E67A /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		8456AAEC1D25419D00D0E67A /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		84D16DBA1D154589005B0254 /* LatestTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTransactionsViewController.swift; sourceTree = "<group>"; };
+		84DE39911D111FC9008F101F /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
+		84DE39931D114F43008F101F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84DE39951D11587A008F101F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		84DE39971D1184E9008F101F /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		84DE39991D118AD1008F101F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		84E2213C1D1289460094DEB1 /* settings.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = settings.jpeg; sourceTree = "<group>"; };
+		84E2213E1D128AF80094DEB1 /* logout.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logout.jpeg; sourceTree = "<group>"; };
+		84F9AB7A1D13CF9B008BFC5A /* raksha (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "raksha (2).png"; sourceTree = "<group>"; };
 		84FB96881D10277000E1F72B /* Raksha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raksha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB968B1D10277100E1F72B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84FB968D1D10277100E1F72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84FB96901D10277100E1F72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84FB968D1D10277100E1F72B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		84FB96921D10277100E1F72B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84FB96951D10277100E1F72B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84FB96971D10277100E1F72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FB969C1D10277100E1F72B /* RakshaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RakshaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB96A01D10277100E1F72B /* RakshaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakshaTests.swift; sourceTree = "<group>"; };
 		84FB96A21D10277100E1F72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FB96AB1D1035E100E1F72B /* raksha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raksha.png; sourceTree = "<group>"; };
+		881D9B66B5C3DEFC3BA35560 /* Pods_Raksha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Raksha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D063F8FE0F17424D21293AF0 /* Pods_RakshaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakshaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0DFFD52F5FC0E6F4678BA3A /* Pods-Raksha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raksha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Raksha/Pods-Raksha.release.xcconfig"; sourceTree = "<group>"; };
+		DE72873B329CC9A93270B525 /* Pods-RakshaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakshaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RakshaTests/Pods-RakshaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F70F4FA96E2F1FE37632A712 /* Pods-RakshaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakshaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RakshaTests/Pods-RakshaTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840D21221D2100CF009D28F0 /* SystemConfiguration.framework in Frameworks */,
+				7DDE6DE49FFCCE78CEF8AFC1 /* Pods_Raksha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +131,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE551651171E38681930963F /* Pods_RakshaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8456AAEE1D2541A600D0E67A /* Keychain Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				8456AAEB1D25419D00D0E67A /* KeychainWrapper.h */,
+				8456AAEC1D25419D00D0E67A /* KeychainWrapper.m */,
+			);
+			name = "Keychain Wrapper";
+			sourceTree = "<group>";
+		};
 		84FB967F1D10277000E1F72B = {
 			isa = PBXGroup;
 			children = (
 				84FB968A1D10277100E1F72B /* Raksha */,
 				84FB969F1D10277100E1F72B /* RakshaTests */,
 				84FB96891D10277000E1F72B /* Products */,
+				84FB96AD1D1035E500E1F72B /* images */,
+				88F480280535114913D4700B /* Pods */,
+				B39E96F1A798BA8F6F9BF6AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +171,34 @@
 		84FB968A1D10277100E1F72B /* Raksha */ = {
 			isa = PBXGroup;
 			children = (
+				8456AAEE1D2541A600D0E67A /* Keychain Wrapper */,
 				84FB968B1D10277100E1F72B /* AppDelegate.swift */,
-				84FB968D1D10277100E1F72B /* ViewController.swift */,
-				84FB968F1D10277100E1F72B /* Main.storyboard */,
+				840D211F1D20FEB3009D28F0 /* Reachability.swift */,
+				7C3EC4341D2D069900D29AE1 /* main.swift */,
+				7C3EC4361D2D06B600D29AE1 /* UIApplication.swift */,
+				842044E21D1A9BE10059E7C0 /* WebServicesHelper.swift */,
+				84FB968D1D10277100E1F72B /* RegistrationViewController.swift */,
+				8408B0341D13FCA400FDE581 /* CustomCell.swift */,
+				84DE39971D1184E9008F101F /* OTPViewController.swift */,
+				8408B0221D13F2E300FDE581 /* PasswordViewController.swift */,
+				8408B0261D13F54D00FDE581 /* LoginViewController.swift */,
+				84DE39931D114F43008F101F /* SignUpViewController.swift */,
+				8408B0241D13F3F200FDE581 /* WelcomeViewController.swift */,
+				84DE39991D118AD1008F101F /* SignInViewController.swift */,
+				8408B02A1D13F58800FDE581 /* ForgotPasswordView.swift */,
+				8408B02C1D13F5D700FDE581 /* EDCardViewController.swift */,
+				8408B02E1D13F5E700FDE581 /* SpendLimitViewController.swift */,
+				8408B0321D13F62400FDE581 /* EDChannelViewController.swift */,
+				8408B0281D13F56F00FDE581 /* DashboardViewController.swift */,
+				8408B0301D13F60300FDE581 /* SelectCardViewController.swift */,
+				84D16DBA1D154589005B0254 /* LatestTransactionsViewController.swift */,
+				7C3EC43A1D2D193B00D29AE1 /* TransactionPasswordViewController.swift */,
+				7C3EC43C1D2D21B400D29AE1 /* forgotTransactonpwViewController.swift */,
+				7C97AF3D1D2A7CFA0049A3D5 /* Main.storyboard */,
 				84FB96921D10277100E1F72B /* Assets.xcassets */,
 				84FB96941D10277100E1F72B /* LaunchScreen.storyboard */,
 				84FB96971D10277100E1F72B /* Info.plist */,
+				842044DD1D1A58910059E7C0 /* Raksha-Bridging-Header.h */,
 			);
 			path = Raksha;
 			sourceTree = "<group>";
@@ -96,6 +212,40 @@
 			path = RakshaTests;
 			sourceTree = "<group>";
 		};
+		84FB96AD1D1035E500E1F72B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				84FB96AB1D1035E100E1F72B /* raksha.png */,
+				84DE39911D111FC9008F101F /* right-arrow.png */,
+				84DE39951D11587A008F101F /* back.png */,
+				84E2213C1D1289460094DEB1 /* settings.jpeg */,
+				84E2213E1D128AF80094DEB1 /* logout.jpeg */,
+				84F9AB7A1D13CF9B008BFC5A /* raksha (2).png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		88F480280535114913D4700B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C85760307F19ED8BABCA199 /* Pods-Raksha.debug.xcconfig */,
+				D0DFFD52F5FC0E6F4678BA3A /* Pods-Raksha.release.xcconfig */,
+				DE72873B329CC9A93270B525 /* Pods-RakshaTests.debug.xcconfig */,
+				F70F4FA96E2F1FE37632A712 /* Pods-RakshaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B39E96F1A798BA8F6F9BF6AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				840D21211D2100CF009D28F0 /* SystemConfiguration.framework */,
+				881D9B66B5C3DEFC3BA35560 /* Pods_Raksha.framework */,
+				D063F8FE0F17424D21293AF0 /* Pods_RakshaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +253,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84FB96A51D10277100E1F72B /* Build configuration list for PBXNativeTarget "Raksha" */;
 			buildPhases = (
+				16EB4B7395957CC1AA23EC95 /* [CP] Check Pods Manifest.lock */,
 				84FB96841D10277000E1F72B /* Sources */,
 				84FB96851D10277000E1F72B /* Frameworks */,
 				84FB96861D10277000E1F72B /* Resources */,
+				EA3F423041F68E0D9BCA7B21 /* [CP] Embed Pods Frameworks */,
+				D4287587D41A0F4F2B897167 /* [CP] Copy Pods Resources */,
+				843F16021D2243C20095216F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,9 +274,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84FB96A81D10277100E1F72B /* Build configuration list for PBXNativeTarget "RakshaTests" */;
 			buildPhases = (
+				4EECF0A74D48CDECAE163EBB /* [CP] Check Pods Manifest.lock */,
 				84FB96981D10277100E1F72B /* Sources */,
 				84FB96991D10277100E1F72B /* Frameworks */,
 				84FB969A1D10277100E1F72B /* Resources */,
+				E12F9ABAA1C3517E3472DAFE /* [CP] Embed Pods Frameworks */,
+				991B2A7653B858C068F0CEFD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +303,7 @@
 				TargetAttributes = {
 					84FB96871D10277000E1F72B = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CADA2XNRVW;
 					};
 					84FB969B1D10277100E1F72B = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -177,9 +335,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DE39921D111FC9008F101F /* right-arrow.png in Resources */,
 				84FB96961D10277100E1F72B /* LaunchScreen.storyboard in Resources */,
 				84FB96931D10277100E1F72B /* Assets.xcassets in Resources */,
-				84FB96911D10277100E1F72B /* Main.storyboard in Resources */,
+				84E2213F1D128AF80094DEB1 /* logout.jpeg in Resources */,
+				84E2213D1D1289460094DEB1 /* settings.jpeg in Resources */,
+				84DE39961D11587A008F101F /* back.png in Resources */,
+				7C97AF3E1D2A7CFA0049A3D5 /* Main.storyboard in Resources */,
+				84F9AB7B1D13CF9B008BFC5A /* raksha (2).png in Resources */,
+				84FB96AC1D1035E100E1F72B /* raksha.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +356,127 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16EB4B7395957CC1AA23EC95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4EECF0A74D48CDECAE163EBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		991B2A7653B858C068F0CEFD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RakshaTests/Pods-RakshaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4287587D41A0F4F2B897167 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Raksha/Pods-Raksha-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E12F9ABAA1C3517E3472DAFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RakshaTests/Pods-RakshaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA3F423041F68E0D9BCA7B21 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Raksha/Pods-Raksha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84FB96841D10277000E1F72B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FB968E1D10277100E1F72B /* ViewController.swift in Sources */,
+				84DE39981D1184E9008F101F /* OTPViewController.swift in Sources */,
+				8408B02F1D13F5E700FDE581 /* SpendLimitViewController.swift in Sources */,
+				7C3EC43D1D2D21B400D29AE1 /* forgotTransactonpwViewController.swift in Sources */,
+				8408B0291D13F56F00FDE581 /* DashboardViewController.swift in Sources */,
+				84DE39941D114F43008F101F /* SignUpViewController.swift in Sources */,
+				840D21201D20FEB3009D28F0 /* Reachability.swift in Sources */,
+				84FB968E1D10277100E1F72B /* RegistrationViewController.swift in Sources */,
+				7C3EC4351D2D069900D29AE1 /* main.swift in Sources */,
+				8408B0311D13F60300FDE581 /* SelectCardViewController.swift in Sources */,
+				84D16DBB1D154589005B0254 /* LatestTransactionsViewController.swift in Sources */,
+				84DE399A1D118AD1008F101F /* SignInViewController.swift in Sources */,
+				7C3EC43B1D2D193B00D29AE1 /* TransactionPasswordViewController.swift in Sources */,
+				8408B0351D13FCA400FDE581 /* CustomCell.swift in Sources */,
+				842044E31D1A9BE10059E7C0 /* WebServicesHelper.swift in Sources */,
+				8408B0271D13F54D00FDE581 /* LoginViewController.swift in Sources */,
 				84FB968C1D10277100E1F72B /* AppDelegate.swift in Sources */,
+				8408B0331D13F62400FDE581 /* EDChannelViewController.swift in Sources */,
+				7C3EC4371D2D06B600D29AE1 /* UIApplication.swift in Sources */,
+				8408B0231D13F2E300FDE581 /* PasswordViewController.swift in Sources */,
+				8456AAED1D25419D00D0E67A /* KeychainWrapper.m in Sources */,
+				8408B02B1D13F58800FDE581 /* ForgotPasswordView.swift in Sources */,
+				8408B0251D13F3F200FDE581 /* WelcomeViewController.swift in Sources */,
+				8408B02D1D13F5D700FDE581 /* EDCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +499,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		84FB968F1D10277100E1F72B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84FB96901D10277100E1F72B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		84FB96941D10277100E1F72B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -325,28 +595,46 @@
 		};
 		84FB96A61D10277100E1F72B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C85760307F19ED8BABCA199 /* Pods-Raksha.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Raksha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximus.Raksha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Raksha/Raksha-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		84FB96A71D10277100E1F72B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0DFFD52F5FC0E6F4678BA3A /* Pods-Raksha.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Raksha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximus.Raksha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Raksha/Raksha-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		84FB96A91D10277100E1F72B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE72873B329CC9A93270B525 /* Pods-RakshaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RakshaTests/Info.plist;
@@ -359,6 +647,7 @@
 		};
 		84FB96AA1D10277100E1F72B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F70F4FA96E2F1FE37632A712 /* Pods-RakshaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RakshaTests/Info.plist;
@@ -388,6 +677,7 @@
 				84FB96A71D10277100E1F72B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84FB96A81D10277100E1F72B /* Build configuration list for PBXNativeTarget "RakshaTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +686,7 @@
 				84FB96AA1D10277100E1F72B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,27 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="d71-Hj-xGT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <!--LaunchScreenVC-->
+        <scene sceneID="FfS-Qw-Rtn">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController title="LaunchScreenVC" id="d71-Hj-xGT" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="MxV-3U-tYr"/>
+                        <viewControllerLayoutGuide type="bottom" id="5be-NQ-33w"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="UBu-xb-GVl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RAKSHA - CARD CONTROL" translatesAutoresizingMaskIntoConstraints="NO" id="m6d-ZJ-MJm">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="S4t-Yc-mNb"/>
+                                    <constraint firstAttribute="width" constant="400" id="eEN-Lf-vCQ">
+                                        <variation key="widthClass=compact" constant="383"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S4t-Yc-mNb"/>
+                                        <exclude reference="eEN-Lf-vCQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="S4t-Yc-mNb"/>
+                                        <include reference="eEN-Lf-vCQ"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m6d-ZJ-MJm" firstAttribute="leading" secondItem="UBu-xb-GVl" secondAttribute="leading" id="Jt4-4R-w4n">
+                                <variation key="widthClass=compact" constant="9"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="m6d-ZJ-MJm" secondAttribute="trailing" id="YpE-RO-wDB">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="m6d-ZJ-MJm" firstAttribute="top" secondItem="MxV-3U-tYr" secondAttribute="bottom" constant="58" id="ZN0-0y-rqd">
+                                <variation key="widthClass=compact" constant="190"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="m6d-ZJ-MJm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Jt4-4R-w4n"/>
+                                <exclude reference="YpE-RO-wDB"/>
+                                <exclude reference="ZN0-0y-rqd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="m6d-ZJ-MJm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Jt4-4R-w4n"/>
+                                <include reference="YpE-RO-wDB"/>
+                                <include reference="ZN0-0y-rqd"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqr-65-fsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-696" y="142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="RAKSHA - CARD CONTROL" width="2481" height="585"/>
+    </resources>
 </document>
