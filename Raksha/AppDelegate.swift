@@ -26,11 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let string = "\"hello[]" // string starts as "hello[]
-        let badchar: NSCharacterSet = NSCharacterSet(charactersInString: "\"[]")
-        let cleanedstring: NSString = (string.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
-        print(cleanedstring)
-        
         print(systemVersion)
         print(systemName)
         print(deviceName)
@@ -47,14 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.boolForKey("launchedBefore")
         if (defaults.boolForKey("launchedBefore"))  {
             print("Not first launch.")
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyBoard.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
-            self.window?.rootViewController = viewController
-            self.window?.makeKeyAndVisible()
-            
-
-
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//            let viewController = storyBoard.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+//            self.window?.rootViewController = viewController
+//            self.window?.makeKeyAndVisible()
         }
         else {
             print("First launch, setting NSUserDefault.")
@@ -72,8 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    
-    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -229,6 +229,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func btnSubmitLimit(sender: AnyObject) {
        submitSpendLimit(edCard, ATMLimit: txtATM.text!, POSLimit:txtPOS.text!, ECMLimit: txtECM.text!)
+        print(txtATM.text)
     }
     
     @IBAction func btnCancelLimit(sender: AnyObject) {

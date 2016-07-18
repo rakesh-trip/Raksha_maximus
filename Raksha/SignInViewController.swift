@@ -56,10 +56,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         textMobnumber.resignFirstResponder()
-        
         return true
     }
-    
     
     func phoneNumberValidation(value: String) -> Bool {
         
@@ -110,14 +108,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
             self.presentViewController(next, animated: true, completion: nil)
         }
     }
-
     }
 
     @IBAction func sunsignin(sender: AnyObject)
     {
         defaults.setObject(self.textMobnumber.text, forKey: "mobileNo")
 
-        
         signInTapped(textMobnumber.text!)
     }
     /*
@@ -129,5 +125,4 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         // Pass the selected object to the new view controller.
     }
     */
-
 }

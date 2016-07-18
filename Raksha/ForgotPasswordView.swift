@@ -12,8 +12,6 @@ import Alamofire
 class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     let defaults = NSUserDefaults.standardUserDefaults()
 
-    
-    
     @IBOutlet weak var txtpassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     
@@ -25,7 +23,6 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         print("UUID is * * * * * * * * * * * " + DeviceReferenceID)
-        
         
         if Reachability.isConnectedToNetwork() == true
         {
@@ -62,7 +59,6 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
     }
     func submitNewPasswordTapped(MobileNumber : String, NewPassword : String)
     {
-        
         Alamofire.request(.POST, "http://125.99.113.202:8777/ChangePassword", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "NewPassword":NewPassword])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -74,8 +70,7 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
                 print("JSON: \(JSON)")
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
-                
-                        }
+        }
     }
 
     
@@ -104,9 +99,7 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
             let okAction = UIAlertAction(title: "Raksha!", style: .Default, handler: nil)
             alertView.addAction(okAction)
             self.presentViewController(alertView, animated: true, completion: nil)
-
         }
-            
         else
         {
             print("passwords dont match")

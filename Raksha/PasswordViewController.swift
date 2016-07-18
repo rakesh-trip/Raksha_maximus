@@ -29,10 +29,8 @@ let defaults = NSUserDefaults.standardUserDefaults()
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
         
         if let mobileNo = defaults.stringForKey("mobileNo")
         {
