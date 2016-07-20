@@ -10,6 +10,7 @@ import UIKit
 //import Darwin
 import CryptoSwift
 import Alamofire
+import SwiftSpinner
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, webServiceDelegate{
 var appdelegate:AppDelegate!
@@ -84,20 +85,8 @@ var appdelegate:AppDelegate!
     }
     func signUpTapped(MobileNumber : String, CustomerID : String)
     {
-//        let alertController = UIAlertController(title: "Raksha", message: "Loading...", preferredStyle: .Alert)
-////        alertController.view.tintColor = UIColor.grayColor()
-//        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 20, 50, 50)) as UIActivityIndicatorView
-//        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-//        alertController.view.addSubview(loadingIndicator)
-//        loadingIndicator.startAnimating();
-//
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//        let delay = 4.0 * Double(NSEC_PER_SEC)
-//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//        dispatch_after(time, dispatch_get_main_queue(), {
-//            alertController.dismissViewControllerAnimated(true, completion: nil)
-//        })
-        
+        SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
+
         Alamofire.request(.POST, "http://125.99.113.202:8777/ValidateCustomerDetailsForRegistration", parameters: ["DeviceReferenceID":DeviceReferenceID, "CustomerID":CustomerID, "MobileNumber":MobileNumber])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -113,23 +102,26 @@ var appdelegate:AppDelegate!
                 if string.containsString("User Already")
                 {
                     print("response is false")
-                                            let alertView:UIAlertView = UIAlertView()
-                                            alertView.title = "Raksha"
-                                            alertView.message = "User already Registered with the Bank, please Sign In."
-                                            alertView.delegate = self
-                                            alertView.addButtonWithTitle("OK")
-                                            alertView.show()
+//                                            let alertView:UIAlertView = UIAlertView()
+//                                            alertView.title = "Raksha"
+//                                            alertView.message = "User already Registered with the Bank, please Sign In."
+//                                            alertView.delegate = self
+//                                            alertView.addButtonWithTitle("OK")
+//                                            alertView.show()
+                    SwiftSpinner.showWithDuration(2.0, title: "User already Registered with the Bank, please Sign in", animated: false)
 
                 }
                  if string.containsString("User's Mobile Number Not Registered")
                 {
-                    print("response is false")
-                    let alertView:UIAlertView = UIAlertView()
-                    alertView.title = "Raksha"
-                    alertView.message = "Mobile does not exist"
-                    alertView.delegate = self
-                    alertView.addButtonWithTitle("OK")
-                    alertView.show()
+//                    print("response is false")
+//                    let alertView:UIAlertView = UIAlertView()
+//                    alertView.title = "Raksha"
+//                    alertView.message = "Mobile does not exist"
+//                    alertView.delegate = self
+//                    alertView.addButtonWithTitle("OK")
+//                    alertView.show()
+                    SwiftSpinner.showWithDuration(2.0, title: "User's Mobile Number Not Registered.", animated: false)
+                   
                 }
                 if string.containsString("Successful")
                 {
@@ -155,7 +147,9 @@ var appdelegate:AppDelegate!
         
         MyKeychain.mySetObject(self.txtFieldCustId.text, forKey: kSecValueData)
         MyKeychain.writeToKeychain()
-       
+//        let custID = MyKeychain.writeToKeychain()
+//        print(custID)
+        
         print(txtFieldMobileNo.text! as String)
         print(txtFieldCustId.text! as String)
         
@@ -174,7 +168,7 @@ var appdelegate:AppDelegate!
             Alert.addButtonWithTitle("OK")
             Alert.show()
         }
-        else if (txtFieldCustId.text == "")
+        if (txtFieldCustId.text == "")
         {
             let Alert: UIAlertView = UIAlertView()
             Alert.delegate = self
@@ -183,9 +177,7 @@ var appdelegate:AppDelegate!
             Alert.addButtonWithTitle("OK")
             Alert.show()
         }
-        else
-        {
-        }
+        
     }
 
     }

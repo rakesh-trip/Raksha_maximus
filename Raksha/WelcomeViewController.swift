@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: false)
+
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
 
 class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
 
@@ -72,21 +73,22 @@ class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDeleg
                 if string.containsString("Successful")
                 {
                     print("OTP successful")
-                    
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("passwordLogin") as! PasswordViewController
                     self.presentViewController(next, animated: true, completion: nil)
+                    SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: false)
+
                 }
                 else
                 {
-                    print("OTP invalid")
-                    let Alert: UIAlertView = UIAlertView()
-                    Alert.delegate = self
-                    Alert.title = "Raksha"
-                    Alert.message = "Please enter a valid OTP."
-                    Alert.addButtonWithTitle("OK")
-                    Alert.show()
-                    
-                    
+//                    print("OTP invalid")
+//                    let Alert: UIAlertView = UIAlertView()
+//                    Alert.delegate = self
+//                    Alert.title = "Raksha"
+//                    Alert.message = "Please enter a valid OTP."
+//                    Alert.addButtonWithTitle("OK")
+//                    Alert.show()
+                    SwiftSpinner.showWithDuration(2.0, title: "Please enter a valid OTP", animated: false)
+
                 }
     }
     }

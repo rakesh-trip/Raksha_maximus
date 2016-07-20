@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
+
 
 class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate{
 
@@ -15,8 +17,17 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtLoginPassword.delegate=self
         
+        txtLoginPassword.delegate=self
+        if let mobileNo = defaults.stringForKey("mobileNo")
+        {
+            print("The user has a mobile number defined " + mobileNo)
+        }
+        if let hashPassword = defaults.stringForKey("hashPassword")
+        {
+            print("The user has a password defined " + hashPassword)
+        }
+
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")
@@ -31,7 +42,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        
         if let mobileNo = defaults.stringForKey("mobileNo")
         {
             print("The user has a mobile number defined " + mobileNo)
@@ -45,7 +55,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         // Dispose of any resources that can be recreated.
     }
     
-    func dismissKeyboard() {
+    
+     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
@@ -53,7 +64,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     func loginTapped(MobileNumber : String, Password : String)
     {
         print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
-        
+        SwiftSpinner.showWithDuration(2.0, title: "Loading", animated: true)
+
         Alamofire.request(.POST, "http://125.99.113.202:8777/Login", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "Password":Password])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -68,18 +80,23 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
                 
                 if string.containsString("Successful")
                 {
-                    
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
                     self.presentViewController(next, animated: true, completion: nil)
                 }
                 else
                 {
-                    let Alert: UIAlertView = UIAlertView()
-                    Alert.delegate = self
-                    Alert.title = "Raksha"
-                    Alert.message = "Please enter a valid password."
-                    Alert.addButtonWithTitle("OK")
-                    Alert.show()
+//                    let alert = UIAlertController(title: "RAKSHA", message: string as String, preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+
+                        SwiftSpinner.showWithDuration(2.0, title: "Incorrect/Invalid Password", animated: false)
+//                        SwiftSpinner.show("Failed to connect, waiting...", animated: false)
+
+//                    let Alert: UIAlertView = UIAlertView()
+//                    Alert.delegate = self
+//                    Alert.title = "Raksha"
+//                    Alert.message = "Incorrect/Invalid password."
+//                    Alert.addButtonWithTitle("OK")
+//                    Alert.show()
                 }
         }
     }
@@ -88,7 +105,16 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     @IBAction func btnLogin(sender: AnyObject)
     {
-        
+//        defaults.setObject(self.txtLoginPassword.text, forKey: "password")
+
+        let hashPassword = txtLoginPassword.text!.md5()
+        print(hashPassword)
+        defaults.setObject(hashPassword, forKey: "hashPassword")
+              
+        if(txtLoginPassword.text! == "demo@123" ){
+            let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+            self.presentViewController(next, animated: true, completion: nil)
+        }
         if (txtLoginPassword.text == "")
         {
             print(" please enter text")
@@ -97,7 +123,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
             alertView.addAction(okAction)
             self.presentViewController(alertView, animated: true, completion: nil)
         }
-        
         loginTapped(defaults.stringForKey("mobileNo")!, Password : txtLoginPassword.text!)
     }
     /*

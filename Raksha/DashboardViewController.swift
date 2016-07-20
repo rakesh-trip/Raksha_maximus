@@ -8,15 +8,11 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
 
 class DashboardViewController: UIViewController , UITextViewDelegate {
 
-    
     var PassValue = ""
-    
-    let prefs = NSUserDefaults.standardUserDefaults()
-    
-    let names = NSMutableArray()
     
     @IBOutlet weak var edCardBtn: UIButton!
     
@@ -29,7 +25,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")
@@ -69,7 +65,6 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
         print("passvalue : " + PassValue)
 
        edCardBtn.backgroundColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1.0 )
-  
 
     }
     
@@ -77,7 +72,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     @IBAction func btnSpendLimitClick(sender: AnyObject) {
         PassValue = "SpendLimit"
         print("passvalue : " + PassValue)
-        spendLimitBtn.backgroundColor = UIColor.greenColor()
+//        spendLimitBtn.backgroundColor = UIColor.greenColor()
 
 //    performSegueWithIdentifier("spendLimit", sender: self)
     }
@@ -88,7 +83,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
         PassValue = "LatestTransaction"
         print("passvalue : " + PassValue)
 //            performSegueWithIdentifier("ltstTrans", sender: self)
-        latestTransBtn.backgroundColor = UIColor.greenColor()
+//        latestTransBtn.backgroundColor = UIColor.greenColor()
     }
     
     // MARK: - NSXMLParserDelegate methods
@@ -97,7 +92,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
         PassValue = "ChannelControl"
         print("passvalue : " + PassValue)
 //            performSegueWithIdentifier("edChannel", sender: self)
-        edChannelBtn.backgroundColor = UIColor.greenColor()
+//        edChannelBtn.backgroundColor = UIColor.greenColor()
         
     }
     
@@ -143,14 +138,12 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
                 if string.containsString("Successful")
                 {
                     print("Logout successful")
-                    
                     let Alert: UIAlertView = UIAlertView()
                     Alert.delegate = self
                     Alert.title = "Raksha"
                     Alert.message = "You have been logged out of Raksha."
                     Alert.addButtonWithTitle("OK")
                     Alert.show()
-                    
                     
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
                     self.presentViewController(next, animated: true, completion: nil)

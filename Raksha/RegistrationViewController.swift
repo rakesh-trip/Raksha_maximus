@@ -41,7 +41,7 @@ class RegistrationViewController: UIViewController{
     }
 
     @IBAction func btnSignUp(sender: AnyObject) {
-        lblSignUp.backgroundColor = UIColor .greenColor()
+//        lblSignUp.backgroundColor = UIColor .greenColor()
     
         if Reachability.isConnectedToNetwork() == true
         {
@@ -59,7 +59,7 @@ class RegistrationViewController: UIViewController{
 
     @IBAction func btnSignIn(sender: AnyObject) {
         
-        lblSignUp.backgroundColor = UIColor .greenColor()
+//        lblSignUp.backgroundColor = UIColor .greenColor()
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")

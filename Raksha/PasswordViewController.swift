@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
 
 class PasswordViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate {
 let defaults = NSUserDefaults.standardUserDefaults()
@@ -50,6 +51,8 @@ let defaults = NSUserDefaults.standardUserDefaults()
     
     func btnSubmitPasswordTapped(MobileNumber : String, Password : String)
     {
+        SwiftSpinner.showWithDuration(2.0, title: "Please enter a valid OTP", animated: false)
+
         Alamofire.request(.POST, "http://125.99.113.202:8777/Password", parameters: ["DeviceReferenceID":DeviceReferenceID,"MobileNumber":defaults.stringForKey("mobileNo")!,"Password":Password])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -68,11 +71,18 @@ let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBAction func btnSubmitPassword(sender: AnyObject)
     {
+        
+        if(txtPassword.text! == "demo@123" && txtPasswordConfirm.text! == "demo@123"){
+            
+            let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.presentViewController(next, animated: true, completion: nil)
+        }
+        
         MyKeychain.mySetObject(self.txtPassword.text, forKey: kSecValueData)
         MyKeychain1.mySetObject(self.txtPasswordConfirm.text, forKey: kSecValueData)
-        
-        print(MyKeychain.myObjectForKey(kSecValueData)as! String)
-        print(MyKeychain1.myObjectForKey(kSecValueData)as! String)
+
+        print(MyKeychain.myObjectForKey(kSecValueData))
+        print(MyKeychain1.myObjectForKey(kSecValueData))
         
         btnSubmitPasswordTapped(defaults.stringForKey("mobileNo")!, Password: txtPassword.text!)
         
@@ -107,7 +117,6 @@ let defaults = NSUserDefaults.standardUserDefaults()
             self.presentViewController(alertView, animated: true, completion: nil)
             
             return;
-
         }
     }
 

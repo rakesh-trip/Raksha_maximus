@@ -26,7 +26,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         view.addGestureRecognizer(tap)
         print("UUID is * * * * * * * * * * * " + DeviceReferenceID)
         
-        
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")

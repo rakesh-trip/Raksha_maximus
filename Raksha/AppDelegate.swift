@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 var DeviceReferenceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
 var systemVersion = UIDevice.currentDevice().systemVersion
@@ -18,6 +19,10 @@ let MyKeychain = KeychainWrapper()
 let MyKeychain1 = KeychainWrapper()
 var baseUrl = "http://125.99.113.202:8777/"
 
+var alert: UIAlertView = UIAlertView(title: "Loading", message: "Please wait...", delegate: nil, cancelButtonTitle: "Cancel");
+
+var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+
 var timer = NSTimer()
 
 //@UIApplicationMain
@@ -26,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+      
         print(systemVersion)
         print(systemName)
         print(deviceName)
@@ -50,8 +57,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
             print("First launch, setting NSUserDefault.")
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
+                    }
+        
+        if let mobileNo = defaults.stringForKey("mobileNo")
+        {
+            print("The user has a mobile number defined " + mobileNo)
         }
+        if let hashPassword = defaults.stringForKey("hashPassword")
+        {
+            print("The user has a hashPassword defined " + hashPassword)
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyBoard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")

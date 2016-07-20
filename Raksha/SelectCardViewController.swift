@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class SelectCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let Response = NSMutableArray()
@@ -28,6 +27,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("ButtonOptionClicked in viewDidLoad of SelectCard is  : " + ButtonOptionClicked)
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,7 +36,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
             print("The user has a mobile number defined " + mobileNo)
         }
         getJSON(defaults.stringForKey("mobileNo")!)
-
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")
@@ -112,13 +111,19 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         return Response.count
     }
     
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("cellForRowAtIndexPath gives  a good feeling")
 
         let cell : CustomCell! = tableView.dequeueReusableCellWithIdentifier("cell") as! CustomCell
         print("\(indexPath)")
-
+        if let mobileNo = defaults.stringForKey("mobileNo")
+        {
+            print("The user has a mobile number defined " + mobileNo)
+            cell.lblCard.text = "12345678901234"
+            cell.lblName.text = "Demo user"
+            cell.lblexpDate.text = "23/06/2050"
+        }
+        
         let strTitle : NSString = Response[indexPath.row] .valueForKey("CustomerName") as! NSString
         let strTitle2 : NSString=Response[indexPath.row] .valueForKey("CardNumber") as! NSString
         let strTitle3 : NSString = Response[indexPath.row] .valueForKey("CardExpiry") as! NSString
