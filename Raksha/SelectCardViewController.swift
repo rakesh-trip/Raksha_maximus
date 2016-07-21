@@ -8,26 +8,24 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
 
 class SelectCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let Response = NSMutableArray()
     
-    let prefs = NSUserDefaults.standardUserDefaults()
-    
-    var name = NSString()
     var sendSelectedCard = NSString()
     var sendexpDate = NSString()
     var sendUserName = NSString()
     
     //MARK: Variable Declaration
     var ButtonOptionClicked = ""
-    var backValue = ""
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SwiftSpinner.showWithDuration(5.0, title: "Loading....", animated: true)
+
         print("ButtonOptionClicked in viewDidLoad of SelectCard is  : " + ButtonOptionClicked)
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,6 +55,10 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(animated: Bool) {
+        SwiftSpinner.showWithDuration(3.0, title: "Loading....", animated: true)
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,6 +80,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getJSON(MobileNumber:String) {
+        
         let urlStr = "http://125.99.113.202:8777/LoadCustomerData"
 
         Alamofire.request(.POST, urlStr, parameters: ["MobileNumber":MobileNumber]).responseJSON { response in
@@ -86,7 +89,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
                 print(response.data)     // server data
                 print(response.result)   // result of response serialization
             
-             let JSON = response.result.value
+            let JSON = response.result.value
             let string: String = JSON as! String
             print("string is " + string)
 
@@ -116,22 +119,13 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
 
         let cell : CustomCell! = tableView.dequeueReusableCellWithIdentifier("cell") as! CustomCell
         print("\(indexPath)")
-        if let mobileNo = defaults.stringForKey("mobileNo")
-        {
-            print("The user has a mobile number defined " + mobileNo)
-            cell.lblCard.text = "12345678901234"
-            cell.lblName.text = "Demo user"
-            cell.lblexpDate.text = "23/06/2050"
-        }
-        
+    
         let strTitle : NSString = Response[indexPath.row] .valueForKey("CustomerName") as! NSString
         let strTitle2 : NSString=Response[indexPath.row] .valueForKey("CardNumber") as! NSString
         let strTitle3 : NSString = Response[indexPath.row] .valueForKey("CardExpiry") as! NSString
         
         cell.lblName.text = strTitle as String
-        
         cell.lblCard.text = strTitle2.description
-        
         cell.lblexpDate.text = strTitle3 as String
         
         cell.contentView.backgroundColor = UIColor.lightTextColor()
@@ -163,9 +157,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         
         //Storing the data to a string from the selected cell
         sendSelectedCard = currentCell.lblCard.text!
-        
         sendexpDate = currentCell.lblexpDate.text!
-        
         sendUserName = currentCell.lblName.text!
         
         if (ButtonOptionClicked == "EDCard"){
@@ -182,7 +174,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         else if(ButtonOptionClicked == "ChannelControl"){
             performSegueWithIdentifier("edChannel", sender: self)
         }
-        
         else{
             print("test hello world!!!!!!")
         }
@@ -190,8 +181,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
     
         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("buttonclicked is  : " + ButtonOptionClicked)
-        
-        
         if (ButtonOptionClicked == "EDCard")
         {
             let enDbCard = segue.destinationViewController as! EDCardViewController

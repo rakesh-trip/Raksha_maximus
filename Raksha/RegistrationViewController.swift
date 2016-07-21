@@ -14,7 +14,10 @@ class RegistrationViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let string1 = "This is ";
+        let string2 = "Swift Language";
+        let appendString = string1 + string2;
+        print("APPEND STRING: \(appendString)");
         // Do any additional setup after loading the view, typically from a nib.
         if Reachability.isConnectedToNetwork() == true
         {
@@ -53,8 +56,6 @@ class RegistrationViewController: UIViewController{
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-
-
     }
 
     @IBAction func btnSignIn(sender: AnyObject) {
@@ -70,7 +71,6 @@ class RegistrationViewController: UIViewController{
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-        
     }
 }
 

@@ -64,6 +64,8 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
                 let JSON = response.result.value
                 let string: String = JSON as! String
                 
+                print("string for spendlimit getwdl limit is * * * * * * " + string)
+                
                 let result :NSDictionary = self.convertStringToDictionary(string)!
                 print(result)
             
@@ -134,9 +136,9 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func submitSpendLimit(PAN: String, ATMLimit : String, POSLimit : String, ECMLimit:String)
+    func submitSpendLimit(PAN: String, ATMLimit : String, POSLimit : String, ECMLimit:String, ATMState:NSInteger, POSState: NSInteger, ECMState: NSInteger)
     {
-        Alamofire.request(.POST, "http://125.99.113.202:8777/SetWdlLimit", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMLimit":ATMLimit, "POSLimit":POSLimit, "ECMLimit":ECMLimit])
+        Alamofire.request(.POST, "http://125.99.113.202:8777/SetWdlLimit", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMLimit":ATMLimit, "POSLimit":POSLimit, "ECMLimit":ECMLimit, "ATMState": ATMState, "POSState": POSState, "ECMState": ECMState ])
             .responseJSON { response in
                 
                 print(response.request)  // original URL request
@@ -158,6 +160,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             print("ONNNNN")
             switchStateATM = 1
             print(switchStateATM)
+            txtATM.hidden = false
             let alert = UIAlertController(title: "RAKSHA", message: "To Confirm, press SUBMIT to enable this amount for your ATM transactions!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
             // show the alert
@@ -168,7 +171,8 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             print("OFFFFFF")
             switchStateATM = 0
             print(switchStateATM)
-            txtATM.text = ""
+            txtATM.hidden = true
+            txtATM.text = "0"
             let alert = UIAlertController(title: "RAKSHA", message: "Transaction Amount will be set to default as regulated by the bank.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
             // show the alert
@@ -184,6 +188,8 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             print("ONNNNN")
             switchStatePOS = 1
             print(switchStatePOS)
+            txtPOS.hidden = false
+
             let alert = UIAlertController(title: "RAKSHA", message: "To Confirm, press SUBMIT to set this amount for your POS transactions!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
             // show the alert
@@ -194,7 +200,9 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             print("OFFFFFF")
             switchStatePOS = 0
             print(switchStatePOS)
-            txtPOS.text = ""
+            txtPOS.hidden = true
+
+            txtPOS.text = "0"
             print(txtPOS.text)
             let alert = UIAlertController(title: "RAKSHA", message: "Transaction Amount will be set to default as regulated by the bank.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -208,8 +216,9 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         if(switchOnlineLimit.on){
             print("ONNNNN")
             switchStateONLINE = 1
+            txtECM.hidden = false
             print(switchStateONLINE)
-            let alert = UIAlertController(title: "RAKSHA", message: "To Confirm, press SUBMIT to set this amount for your Online transactions!", preferredStyle: UIAlertControllerStyle.Alert)
+                        let alert = UIAlertController(title: "RAKSHA", message: "To Confirm, press SUBMIT to set this amount for your Online transactions!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
             // show the alert
             self.presentViewController(alert, animated: true, completion: nil)
@@ -218,7 +227,8 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         {
             print("OFFFFFF")
             switchStateONLINE = 0
-            txtECM.text! = ""
+            txtECM.text! = "0"
+            txtECM.hidden = true
             print(txtECM.text!)
             let alert = UIAlertController(title: "RAKSHA", message: "Transaction Amount will be set to default as regulated by the bank.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -228,8 +238,20 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnSubmitLimit(sender: AnyObject) {
-       submitSpendLimit(edCard, ATMLimit: txtATM.text!, POSLimit:txtPOS.text!, ECMLimit: txtECM.text!)
-        print(txtATM.text)
+        submitSpendLimit(edCard, ATMLimit: txtATM.text!, POSLimit: txtPOS.text!, ECMLimit: txtECM.text!, ATMState: switchStateATM, POSState: switchStatePOS, ECMState: switchStateONLINE)
+        print(txtATM.text!)
+        print(txtPOS.text!)
+        if txtECM.text! == "" || txtATM.text! == "" || txtPOS.text! == "" {
+            print("please enter text")
+            let Alert: UIAlertView = UIAlertView()
+            Alert.delegate = self
+            Alert.title = "Raksha"
+            Alert.message = "Please enter a value for all 3 fields"
+            Alert.addButtonWithTitle("OK")
+            Alert.show()
+            
+        }
+
     }
     
     @IBAction func btnCancelLimit(sender: AnyObject) {

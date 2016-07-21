@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
+
 
 class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
    
@@ -15,6 +17,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     
     @IBOutlet weak var textMobnumber: UITextField!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         if let mobileNo = defaults.stringForKey("mobileNo")
@@ -91,13 +94,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         
         if string.containsString("User's Mobile Number Not Registered")
         {
-            print("response is false")
-            let alertView:UIAlertView = UIAlertView()
-            alertView.title = "Raksha"
-            alertView.message = "Mobile does not exist"
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+           SwiftSpinner.showWithDuration(2.0, title: "User's Mobile Number Not Registered.", animated: false)
         }
         if string.containsString("Successful")
         {

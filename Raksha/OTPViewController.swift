@@ -56,6 +56,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDeleg
 
     func submitOTPtapped(MobileNumber : String, OTP : String)
     {
+
         print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
 
         Alamofire.request(.POST, "http://125.99.113.202:8777/ValidateOTP", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "OTP":OTP])
@@ -73,34 +74,23 @@ class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDeleg
                 if string.containsString("Successful")
                 {
                     print("OTP successful")
+                    SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
+
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("passwordLogin") as! PasswordViewController
                     self.presentViewController(next, animated: true, completion: nil)
-                    SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: false)
-
                 }
                 else
                 {
-//                    print("OTP invalid")
-//                    let Alert: UIAlertView = UIAlertView()
-//                    Alert.delegate = self
-//                    Alert.title = "Raksha"
-//                    Alert.message = "Please enter a valid OTP."
-//                    Alert.addButtonWithTitle("OK")
-//                    Alert.show()
                     SwiftSpinner.showWithDuration(2.0, title: "Please enter a valid OTP", animated: false)
-
                 }
     }
     }
     
     @IBAction func submitOTP(sender: AnyObject)
     {
-        
         if(txtFieldOTP.text! == "1234" ){
-            
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("passwordLogin") as! PasswordViewController
             self.presentViewController(next, animated: true, completion: nil)
-            
         }
         submitOTPtapped(defaults.stringForKey("mobileNo")!, OTP : txtFieldOTP.text!)
         }

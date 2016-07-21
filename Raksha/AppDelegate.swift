@@ -19,10 +19,6 @@ let MyKeychain = KeychainWrapper()
 let MyKeychain1 = KeychainWrapper()
 var baseUrl = "http://125.99.113.202:8777/"
 
-var alert: UIAlertView = UIAlertView(title: "Loading", message: "Please wait...", delegate: nil, cancelButtonTitle: "Cancel");
-
-var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
-
 var timer = NSTimer()
 
 //@UIApplicationMain
@@ -31,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
       
         print(systemVersion)
         print(systemName)
@@ -57,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
             print("First launch, setting NSUserDefault.")
-                    }
+        }
         
         if let mobileNo = defaults.stringForKey("mobileNo")
         {

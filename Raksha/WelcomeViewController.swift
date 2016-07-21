@@ -35,6 +35,17 @@ class WelcomeViewController: UIViewController {
     }
     
 
+    @IBAction func btnProceedClicked(sender: AnyObject) {
+        SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        self.presentViewController(next, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnExitClicked(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("registrationVC") as! RegistrationViewController
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
     /*
     // MARK: - Navigation
 

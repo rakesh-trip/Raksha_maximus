@@ -48,6 +48,12 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
           
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,6 +69,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     @IBAction func EDCard(sender: AnyObject) {
         PassValue = "EDCard"
         print("passvalue : " + PassValue)
+//        SwiftSpinner.showWithDuration(3.0, title: "Loading....", animated: true)
 
        edCardBtn.backgroundColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1.0 )
 
@@ -71,6 +78,8 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     
     @IBAction func btnSpendLimitClick(sender: AnyObject) {
         PassValue = "SpendLimit"
+        SwiftSpinner.showWithDuration(3.0, title: "Loading....", animated: true)
+
         print("passvalue : " + PassValue)
 //        spendLimitBtn.backgroundColor = UIColor.greenColor()
 
@@ -81,6 +90,8 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     
     @IBAction func btnLatestTrans(sender: AnyObject) {
         PassValue = "LatestTransaction"
+        SwiftSpinner.showWithDuration(3.0, title: "Loading....", animated: true)
+
         print("passvalue : " + PassValue)
 //            performSegueWithIdentifier("ltstTrans", sender: self)
 //        latestTransBtn.backgroundColor = UIColor.greenColor()
@@ -90,6 +101,8 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     
     @IBAction func btnChannelControl(sender: AnyObject) {
         PassValue = "ChannelControl"
+        SwiftSpinner.showWithDuration(3.0, title: "Loading....", animated: true)
+
         print("passvalue : " + PassValue)
 //            performSegueWithIdentifier("edChannel", sender: self)
 //        edChannelBtn.backgroundColor = UIColor.greenColor()
@@ -98,7 +111,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
     
     @IBAction func btnSettings(sender: AnyObject)
     {
-        let next = self.storyboard?.instantiateViewControllerWithIdentifier("forgotPassword") as! ForgotPasswordView
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("settingsVC") as! SettingsViewController
         self.presentViewController(next, animated: true, completion: nil)
     }
     

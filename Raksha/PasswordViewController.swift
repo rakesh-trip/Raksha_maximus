@@ -17,6 +17,8 @@ let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
         txtPassword.delegate = self
         txtPasswordConfirm.delegate = self
         // Do any additional setup after loading the view.
@@ -51,7 +53,6 @@ let defaults = NSUserDefaults.standardUserDefaults()
     
     func btnSubmitPasswordTapped(MobileNumber : String, Password : String)
     {
-        SwiftSpinner.showWithDuration(2.0, title: "Please enter a valid OTP", animated: false)
 
         Alamofire.request(.POST, "http://125.99.113.202:8777/Password", parameters: ["DeviceReferenceID":DeviceReferenceID,"MobileNumber":defaults.stringForKey("mobileNo")!,"Password":Password])
             .responseJSON { response in
@@ -64,6 +65,11 @@ let defaults = NSUserDefaults.standardUserDefaults()
                 print("JSON: \(JSON)")
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
+                if string.containsString("successful")
+                {
+                    SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
+
+                }
         }
     }
 
@@ -96,13 +102,16 @@ let defaults = NSUserDefaults.standardUserDefaults()
         }
         
         if (txtPassword.text?.characters.count != 4) {
-            print("please enter atleast 4 characters as your password.")
+            SwiftSpinner.showWithDuration(2.0, title: "Please enter atleast 4 characters", animated: false)
+
         }
 
         
         if (txtPassword.text == txtPasswordConfirm.text)
         {
             print("passwords match")
+            SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
+
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("welcomePage") as! WelcomeViewController
             self.presentViewController(next, animated: true, completion: nil)
         }
@@ -111,10 +120,11 @@ let defaults = NSUserDefaults.standardUserDefaults()
         {
             print("passwords dont match")
 
-            let alertView = UIAlertController(title: "Oops! A Problem", message: "Please ensure that the passwords match." as String, preferredStyle:.Alert)
-            let okAction = UIAlertAction(title: "Failed!", style: .Default, handler: nil)
-            alertView.addAction(okAction)
-            self.presentViewController(alertView, animated: true, completion: nil)
+//            let alertView = UIAlertController(title: "Oops! A Problem", message: "Please ensure that the passwords match." as String, preferredStyle:.Alert)
+//            let okAction = UIAlertAction(title: "Failed!", style: .Default, handler: nil)
+//            alertView.addAction(okAction)
+//            self.presentViewController(alertView, animated: true, completion: nil)
+            SwiftSpinner.showWithDuration(2.0, title: "Oops, Passwords don't match.", animated: false)
             
             return;
         }

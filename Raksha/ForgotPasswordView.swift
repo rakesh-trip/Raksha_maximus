@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
 
 class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -59,6 +60,7 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
     }
     func submitNewPasswordTapped(MobileNumber : String, NewPassword : String)
     {
+
         Alamofire.request(.POST, "http://125.99.113.202:8777/ChangePassword", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "NewPassword":NewPassword])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -70,6 +72,23 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
                 print("JSON: \(JSON)")
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
+
+                if string.containsString("Successful")
+                {
+                    let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+                    self.presentViewController(next, animated: true, completion: nil)
+                    let alertView = UIAlertController(title: "RAKSHA", message: "Passwords changed successfuly." as String, preferredStyle:.Alert)
+                                let okAction = UIAlertAction(title: "Success!", style: .Default, handler: nil)
+                                alertView.addAction(okAction)
+                                self.presentViewController(alertView, animated: true, completion: nil)
+
+                }
+                else
+                {
+                    SwiftSpinner.showWithDuration(2.0, title: "Error, please try again!!", animated: false)
+
+                }
+                
         }
     }
 
@@ -91,18 +110,14 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
             print("please enter atleast 4 characters as your password.")
         }
         
-        
         if (txtpassword.text == txtConfirmPassword.text)
         {
             print("passwords match")
-            let alertView = UIAlertController(title: "Raksha", message: "Password changed successfully" as String, preferredStyle:.Alert)
-            let okAction = UIAlertAction(title: "Raksha!", style: .Default, handler: nil)
-            alertView.addAction(okAction)
-            self.presentViewController(alertView, animated: true, completion: nil)
+           
         }
         else
         {
-            print("passwords dont match")
+            print("passwords don't match")
             
             let alertView = UIAlertController(title: "Oops! A Problem", message: "Please ensure that the passwords match." as String, preferredStyle:.Alert)
             let okAction = UIAlertAction(title: "Failed!", style: .Default, handler: nil)
@@ -110,9 +125,7 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
             self.presentViewController(alertView, animated: true, completion: nil)
             
             return;
-            
         }
-
     }
     
     @IBAction func btnCancelPassword(sender: AnyObject)

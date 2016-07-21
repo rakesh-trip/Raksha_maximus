@@ -63,6 +63,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     func loginTapped(MobileNumber : String, Password : String)
     {
+        
+
         print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
         SwiftSpinner.showWithDuration(2.0, title: "Loading", animated: true)
 
@@ -80,23 +82,13 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
                 
                 if string.containsString("Successful")
                 {
+                    SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
                     self.presentViewController(next, animated: true, completion: nil)
                 }
                 else
                 {
-//                    let alert = UIAlertController(title: "RAKSHA", message: string as String, preferredStyle: UIAlertControllerStyle.Alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-
                         SwiftSpinner.showWithDuration(2.0, title: "Incorrect/Invalid Password", animated: false)
-//                        SwiftSpinner.show("Failed to connect, waiting...", animated: false)
-
-//                    let Alert: UIAlertView = UIAlertView()
-//                    Alert.delegate = self
-//                    Alert.title = "Raksha"
-//                    Alert.message = "Incorrect/Invalid password."
-//                    Alert.addButtonWithTitle("OK")
-//                    Alert.show()
                 }
         }
     }

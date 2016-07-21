@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72B957C91D40F7A300B90F67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B957C81D40F7A300B90F67 /* SettingsViewController.swift */; };
+		72B957CB1D40F8B000B90F67 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B957CA1D40F8B000B90F67 /* MessageUI.framework */; };
 		7C3EC4351D2D069900D29AE1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC4341D2D069900D29AE1 /* main.swift */; };
 		7C3EC4371D2D06B600D29AE1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC4361D2D06B600D29AE1 /* UIApplication.swift */; };
 		7C3EC43B1D2D193B00D29AE1 /* TransactionPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EC43A1D2D193B00D29AE1 /* TransactionPasswordViewController.swift */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		3C85760307F19ED8BABCA199 /* Pods-Raksha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raksha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raksha/Pods-Raksha.debug.xcconfig"; sourceTree = "<group>"; };
+		72B957C81D40F7A300B90F67 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		72B957CA1D40F8B000B90F67 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7C3EC4341D2D069900D29AE1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7C3EC4361D2D06B600D29AE1 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		7C3EC43A1D2D193B00D29AE1 /* TransactionPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPasswordViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B957CB1D40F8B000B90F67 /* MessageUI.framework in Frameworks */,
 				840D21221D2100CF009D28F0 /* SystemConfiguration.framework in Frameworks */,
 				7DDE6DE49FFCCE78CEF8AFC1 /* Pods_Raksha.framework in Frameworks */,
 			);
@@ -176,6 +181,7 @@
 				840D211F1D20FEB3009D28F0 /* Reachability.swift */,
 				7C3EC4341D2D069900D29AE1 /* main.swift */,
 				7C3EC4361D2D06B600D29AE1 /* UIApplication.swift */,
+				72B957C81D40F7A300B90F67 /* SettingsViewController.swift */,
 				842044E21D1A9BE10059E7C0 /* WebServicesHelper.swift */,
 				84FB968D1D10277100E1F72B /* RegistrationViewController.swift */,
 				8408B0341D13FCA400FDE581 /* CustomCell.swift */,
@@ -239,6 +245,7 @@
 		B39E96F1A798BA8F6F9BF6AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72B957CA1D40F8B000B90F67 /* MessageUI.framework */,
 				840D21211D2100CF009D28F0 /* SystemConfiguration.framework */,
 				881D9B66B5C3DEFC3BA35560 /* Pods_Raksha.framework */,
 				D063F8FE0F17424D21293AF0 /* Pods_RakshaTests.framework */,
@@ -477,6 +484,7 @@
 				8408B02B1D13F58800FDE581 /* ForgotPasswordView.swift in Sources */,
 				8408B0251D13F3F200FDE581 /* WelcomeViewController.swift in Sources */,
 				8408B02D1D13F5D700FDE581 /* EDCardViewController.swift in Sources */,
+				72B957C91D40F7A300B90F67 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,18 +12,23 @@ import CryptoSwift
 import Alamofire
 import SwiftSpinner
 
+let webServiceMethod = "ValidateCustomerDetailsForRegistration"
+let appendString = baseUrl + webServiceMethod
+
+
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, webServiceDelegate{
 var appdelegate:AppDelegate!
     
     let defaults = NSUserDefaults.standardUserDefaults()
-
+    
     @IBOutlet weak var txtFieldMobileNo: UITextField!
     @IBOutlet weak var txtFieldCustId: UITextField!
     
        override func viewDidLoad() {
-        
+       
         // Do any additional setup after loading the view.
         super.viewDidLoad()
+
         txtFieldMobileNo.delegate = self
         txtFieldCustId.delegate = self
         defaults.setObject("1", forKey: "appRaksha")
@@ -66,7 +71,6 @@ var appdelegate:AppDelegate!
         txtFieldCustId.resignFirstResponder()
         return true
     }
-
  
     func phoneNumberValidation(value: String) -> Bool {
         
@@ -83,11 +87,13 @@ var appdelegate:AppDelegate!
             return false
         }
     }
+    
     func signUpTapped(MobileNumber : String, CustomerID : String)
     {
         SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
+        print(appendString)
 
-        Alamofire.request(.POST, "http://125.99.113.202:8777/ValidateCustomerDetailsForRegistration", parameters: ["DeviceReferenceID":DeviceReferenceID, "CustomerID":CustomerID, "MobileNumber":MobileNumber])
+        Alamofire.request(.POST, appendString, parameters: ["DeviceReferenceID":DeviceReferenceID, "CustomerID":CustomerID, "MobileNumber":MobileNumber])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -111,7 +117,7 @@ var appdelegate:AppDelegate!
                     SwiftSpinner.showWithDuration(2.0, title: "User already Registered with the Bank, please Sign in", animated: false)
 
                 }
-                 if string.containsString("User's Mobile Number Not Registered")
+                 if string.containsString("Unable To Process")
                 {
 //                    print("response is false")
 //                    let alertView:UIAlertView = UIAlertView()
@@ -120,7 +126,7 @@ var appdelegate:AppDelegate!
 //                    alertView.delegate = self
 //                    alertView.addButtonWithTitle("OK")
 //                    alertView.show()
-                    SwiftSpinner.showWithDuration(2.0, title: "User's Mobile Number Not Registered.", animated: false)
+                    SwiftSpinner.showWithDuration(2.0, title: "Unable To Process.", animated: false)
                    
                 }
                 if string.containsString("Successful")
@@ -136,7 +142,6 @@ var appdelegate:AppDelegate!
     
     @IBAction func btnSumbitSignUp(sender: AnyObject)
     {
-        
         signUpTapped(txtFieldMobileNo.text!, CustomerID: txtFieldCustId.text!)
 
         let hash = txtFieldMobileNo.text!.md5()
@@ -177,9 +182,7 @@ var appdelegate:AppDelegate!
             Alert.addButtonWithTitle("OK")
             Alert.show()
         }
-        
     }
-
     }
     
     

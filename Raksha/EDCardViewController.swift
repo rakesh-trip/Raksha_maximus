@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
 
 class EDCardViewController: UIViewController {
     
@@ -28,31 +29,7 @@ class EDCardViewController: UIViewController {
 
         super.viewDidLoad()
         
-        
-        Alamofire.request(.POST, "http://125.99.113.202:8777/GetCustomerOperations", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":edCard, "ServiceType":1])
-            .responseJSON { response in
-                
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                let JSON = response.result.value
-                let string: NSString = JSON as! NSString
-                print("string is " + (string as String))
-                
-                if string.containsString("off")
-                {
-                self.switchState = 0
-                    self.switchEdCard.on = false
-                }
-                else
-                {
-                    self.switchState = 1
-                    self.switchEdCard.on = true
-                }
-        }
-        
+
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")
@@ -76,6 +53,39 @@ class EDCardViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+        SwiftSpinner.showWithDuration(2.0, title: "Loading...", animated: true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+        Alamofire.request(.POST, "http://125.99.113.202:8777/GetCustomerOperations", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":edCard, "ServiceType":1])
+            .responseJSON { response in
+                
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                let JSON = response.result.value
+                let string: NSString = JSON as! NSString
+                print("string is " + (string as String))
+                
+                if string.containsString("off")
+                {
+                    self.switchState = 0
+                    self.switchEdCard.on = false
+                }
+                else
+                {
+                    self.switchState = 1
+                    self.switchEdCard.on = true
+                }
+        }
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
