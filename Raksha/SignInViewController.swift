@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftSpinner
 
+let wsMethodValidateMobileNumber = "ValidateMobileNumber"
+let appendStringValidateMobileNumber = baseUrl + wsMethodValidateMobileNumber
+
 
 class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
    
@@ -80,7 +83,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     
     func signInTapped(MobileNumber : String)
     {
-        Alamofire.request(.POST, "http://125.99.113.202:8777/ValidateMobileNumber", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":MobileNumber])
+        Alamofire.request(.POST, appendStringValidateMobileNumber, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":MobileNumber])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

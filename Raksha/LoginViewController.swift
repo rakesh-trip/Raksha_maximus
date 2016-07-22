@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftSpinner
 
+let wsMethodLogin = "Login"
+let appendStringLogin = baseUrl + wsMethodLogin
 
 class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate{
 
@@ -17,7 +19,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(appendStringLogin)
         txtLoginPassword.delegate=self
         if let mobileNo = defaults.stringForKey("mobileNo")
         {
@@ -25,7 +27,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         }
         if let hashPassword = defaults.stringForKey("hashPassword")
         {
-            print("The user has a password defined " + hashPassword)
+            print("The user has a hashpassword defined in LoginVC" + hashPassword)
         }
 
         if Reachability.isConnectedToNetwork() == true
@@ -68,7 +70,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
         SwiftSpinner.showWithDuration(2.0, title: "Loading", animated: true)
 
-        Alamofire.request(.POST, "http://125.99.113.202:8777/Login", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "Password":Password])
+        Alamofire.request(.POST, appendStringLogin, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "Password":Password])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -127,4 +129,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     }
     */
 
+    @IBAction func btnForgotPassword(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("forgotPasswordVC") as! ForgotPasswordView
+        self.presentViewController(next, animated: true, completion: nil)
+    }
 }

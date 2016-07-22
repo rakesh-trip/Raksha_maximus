@@ -12,14 +12,16 @@ import CryptoSwift
 import Alamofire
 import SwiftSpinner
 
-let webServiceMethod = "ValidateCustomerDetailsForRegistration"
-let appendString = baseUrl + webServiceMethod
 
+let webServiceMethod = "ValidateCustomerDetailsForRegistration"
+let appendStringSignUp = baseUrl + webServiceMethod
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, webServiceDelegate{
 var appdelegate:AppDelegate!
     
     let defaults = NSUserDefaults.standardUserDefaults()
+    
+    
     
     @IBOutlet weak var txtFieldMobileNo: UITextField!
     @IBOutlet weak var txtFieldCustId: UITextField!
@@ -91,9 +93,9 @@ var appdelegate:AppDelegate!
     func signUpTapped(MobileNumber : String, CustomerID : String)
     {
         SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
-        print(appendString)
+        print(appendStringSignUp)
 
-        Alamofire.request(.POST, appendString, parameters: ["DeviceReferenceID":DeviceReferenceID, "CustomerID":CustomerID, "MobileNumber":MobileNumber])
+        Alamofire.request(.POST, appendStringSignUp, parameters: ["DeviceReferenceID":DeviceReferenceID, "CustomerID":CustomerID, "MobileNumber":MobileNumber])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -203,5 +205,9 @@ var appdelegate:AppDelegate!
     }
     */
     
+    @IBAction func btnBackSignUp(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("registrationVC") as! RegistrationViewController
+        self.presentViewController(next, animated: true, completion: nil)
+    }
         
     }

@@ -21,11 +21,11 @@ var baseUrl = "http://125.99.113.202:8777/"
 
 var timer = NSTimer()
 
-//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var isReachable:Bool!
     var window: UIWindow?
     
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
       
         print(systemVersion)
@@ -44,11 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.boolForKey("launchedBefore")
         if (defaults.boolForKey("launchedBefore"))  {
             print("Not first launch.")
-//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//            let viewController = storyBoard.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
-//            self.window?.rootViewController = viewController
-//            self.window?.makeKeyAndVisible()
+
         }
         else {
             print("First launch, setting NSUserDefault.")
@@ -69,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }
         
-        
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")
@@ -89,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        print("in background")
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -99,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("active after background")
     }
 
     func applicationWillTerminate(application: UIApplication) {

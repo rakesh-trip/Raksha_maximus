@@ -124,6 +124,53 @@ class LatestTransactionsViewController: UIViewController, UITableViewDelegate, U
     }
 
     
+    @IBAction func btnBackLatesTrans(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
+    
+    
+    func logOutTapped(MobileNumber : String)
+    {
+        
+        Alamofire.request(.POST, "http://125.99.113.202:8777/LogOut", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                let JSON = response.result.value
+                print("JSON: \(JSON)")
+                let string: NSString = JSON as! NSString
+                print("string is " + (string as String))
+                
+                if string.containsString("Successful")
+                {
+                    print("Logout successful")
+                    let Alert: UIAlertView = UIAlertView()
+                    Alert.delegate = self
+                    Alert.title = "Raksha"
+                    Alert.message = "You have been logged out of Raksha."
+                    Alert.addButtonWithTitle("OK")
+                    Alert.show()
+                    
+                    let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+                    self.presentViewController(next, animated: true, completion: nil)
+                }
+                else
+                {
+                    print("Logout failed")
+                }
+        }
+    }
+
+    @IBAction func btnLogoutLtstTrans(sender: AnyObject) {
+        logOutTapped(defaults.stringForKey("mobileNo")!)
+    }
+    
     /*
     // MARK: - Navigation
 

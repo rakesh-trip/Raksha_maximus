@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftSpinner
 
+let wsMethodValidateOTP = "ValidateOTP"
+let appendStringValidateOTP = baseUrl + wsMethodValidateOTP
+
 class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
 
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -59,7 +62,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDeleg
 
         print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
 
-        Alamofire.request(.POST, "http://125.99.113.202:8777/ValidateOTP", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "OTP":OTP])
+        Alamofire.request(.POST, appendStringValidateOTP, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "OTP":OTP])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

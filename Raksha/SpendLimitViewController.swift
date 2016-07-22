@@ -9,6 +9,16 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
+
+
+let wsMethodGetWdlLimit = "GetWdlLimit"
+let appendStringGetWdlLimit = baseUrl + wsMethodGetWdlLimit
+
+let wsMethodSetWdlLimit = "SetWdlLimit"
+let appendStringSetWdlLimit = baseUrl + wsMethodSetWdlLimit
+
+
 
 class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     
@@ -17,12 +27,12 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     var edCard:String!
     var expiryDate:String!
     var userName:String!
-    var switchStateATM:NSInteger = NSInteger()
-    var switchStatePOS:NSInteger = NSInteger()
-    var switchStateONLINE:NSInteger = NSInteger()
-
+   
+    var switchStateATM:String!
+    var switchStatePOS:String!
+    var switchStateONLINE:String!
+    
     let bounds = UIScreen.mainScreen().bounds
-
     
     @IBOutlet weak var txtATM: UITextField!
     @IBOutlet weak var txtPOS: UITextField!
@@ -53,7 +63,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             alert.show()
         }
         
-        Alamofire.request(.POST, "http://125.99.113.202:8777/GetWdlLimit", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":edCard])
+        Alamofire.request(.POST, appendStringGetWdlLimit, parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":edCard])
             .responseJSON { response in
                 
                 print(response.request)  // original URL request
@@ -67,7 +77,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
                 print("string for spendlimit getwdl limit is * * * * * * " + string)
                 
                 let result :NSDictionary = self.convertStringToDictionary(string)!
-                print(result)
+                print("dictRsult is : * * * * " , result)
             
                 for i in 0  ..< (result.valueForKey("Response") as! NSArray).count
                 {
@@ -80,17 +90,60 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
                     self.txtATM.text = cleanedstringATM as String
                     self.txtATM.text = self.txtATM.text!.stringByReplacingOccurrencesOfString(" ", withString: "")
                     
+                    let atmState = self.Response.valueForKey("ATMState")
+                    let cleanedatmState: NSString = (atmState.description.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
+                    if cleanedatmState.containsString("1")
+                    {
+                        self.switchATMLimit.on = true
+                        self.switchStateATM = "true"
+                    }
+                    else
+                    {
+                        self.switchATMLimit.on = false
+                        self.switchStateATM = "false"
+                        self.txtATM.hidden = true
+
+                    }
+                    
                     let ecmValue = self.Response.valueForKey("ECM")
                     let cleanedstringECM: NSString = (ecmValue.description.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
                     print(cleanedstringECM)
                     self.txtECM.text = cleanedstringECM as String
                     self.txtECM.text = self.txtECM.text!.stringByReplacingOccurrencesOfString(" ", withString: "")
 
+                    let ecmState = self.Response.valueForKey("ECMState")
+                    let cleanedecmState: NSString = (ecmState.description.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
+                    if cleanedecmState.containsString("1")
+                    {
+                        self.switchOnlineLimit.on = true
+                        self.switchStateONLINE = "true"
+                    }
+                    else
+                    {
+                        self.switchOnlineLimit.on = false
+                        self.switchStateONLINE = "false"
+                        self.txtECM.hidden = true
+                    }
+
                     let posValue = self.Response.valueForKey("POS")
                     let cleanedstringPOS: NSString = (posValue.description.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
                     print(cleanedstringPOS)
                     self.txtPOS.text = cleanedstringPOS as String
                     self.txtPOS.text = self.txtPOS.text!.stringByReplacingOccurrencesOfString(" ", withString: "")
+                    
+                    let posState = self.Response.valueForKey("POSState")
+                    let cleanedposState: NSString = (posState.description.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
+                    if cleanedposState.containsString("1")
+                    {
+                        self.switchPOSLimit.on = true
+                        self.switchStatePOS = "true"
+                    }
+                    else
+                    {
+                        self.switchPOSLimit.on = false
+                        self.switchStatePOS = "false"
+                        self.txtPOS.hidden = true
+                    }
                 }
         }
         
@@ -136,20 +189,32 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func submitSpendLimit(PAN: String, ATMLimit : String, POSLimit : String, ECMLimit:String, ATMState:NSInteger, POSState: NSInteger, ECMState: NSInteger)
+    func submitSpendLimit(PAN: String, ATMLimit : String, POSLimit : String, ECMLimit:String, ATMState:String, POSState: String, ECMState: String)
     {
-        Alamofire.request(.POST, "http://125.99.113.202:8777/SetWdlLimit", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMLimit":ATMLimit, "POSLimit":POSLimit, "ECMLimit":ECMLimit, "ATMState": ATMState, "POSState": POSState, "ECMState": ECMState ])
+
+        Alamofire.request(.POST, appendStringSetWdlLimit, parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMLimit":ATMLimit, "POSLimit":POSLimit, "ECMLimit":ECMLimit, "ATMState": ATMState, "POSState": POSState, "ECMState": ECMState ])
             .responseJSON { response in
                 
                 print(response.request)  // original URL request
                 print(response.response) // URL response
-                print(response.data)     // server data
                 print(response.result)   // result of response serialization
                 
                 let JSON = response.result.value
                 print(JSON)
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
+                if string.containsString("Successful")
+                {
+                    let alert = UIAlertController(title: "RAKSHA", message: "Request submitted successfully", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel , handler: nil))
+                    // show the alert
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                else if string.containsString("Operation Failed due to Some Issue"){
+//                    SwiftSpinner.showWithDuration(2.0, title: "Failed, please try again.")
+                    print("failed")
+                }
+                
         }
     }
 
@@ -158,7 +223,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     {
         if(switchATMLimit.on){
             print("ONNNNN")
-            switchStateATM = 1
+            switchStateATM = "true"
             print(switchStateATM)
             txtATM.hidden = false
             let alert = UIAlertController(title: "RAKSHA", message: "To Confirm, press SUBMIT to enable this amount for your ATM transactions!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -169,7 +234,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         else
         {
             print("OFFFFFF")
-            switchStateATM = 0
+            switchStateATM = "false"
             print(switchStateATM)
             txtATM.hidden = true
             txtATM.text = "0"
@@ -186,7 +251,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     @IBAction func limitPOSSwitch(sender: AnyObject) {
         if(switchPOSLimit.on){
             print("ONNNNN")
-            switchStatePOS = 1
+            switchStatePOS = "true"
             print(switchStatePOS)
             txtPOS.hidden = false
 
@@ -198,7 +263,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         else
         {
             print("OFFFFFF")
-            switchStatePOS = 0
+            switchStatePOS = "false"
             print(switchStatePOS)
             txtPOS.hidden = true
 
@@ -215,7 +280,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     @IBAction func limitOnlineSwitch(sender: AnyObject) {
         if(switchOnlineLimit.on){
             print("ONNNNN")
-            switchStateONLINE = 1
+            switchStateONLINE = "true"
             txtECM.hidden = false
             print(switchStateONLINE)
                         let alert = UIAlertController(title: "RAKSHA", message: "To Confirm, press SUBMIT to set this amount for your Online transactions!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -226,7 +291,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         else
         {
             print("OFFFFFF")
-            switchStateONLINE = 0
+            switchStateONLINE = "false"
             txtECM.text! = "0"
             txtECM.hidden = true
             print(txtECM.text!)
@@ -238,20 +303,19 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnSubmitLimit(sender: AnyObject) {
-        submitSpendLimit(edCard, ATMLimit: txtATM.text!, POSLimit: txtPOS.text!, ECMLimit: txtECM.text!, ATMState: switchStateATM, POSState: switchStatePOS, ECMState: switchStateONLINE)
         print(txtATM.text!)
         print(txtPOS.text!)
+        print(switchStateATM)
+        print(switchStatePOS)
+        print(switchStateONLINE)
+        submitSpendLimit(edCard, ATMLimit: txtATM.text!, POSLimit: txtPOS.text!, ECMLimit: txtECM.text!, ATMState: switchStateATM, POSState: switchStatePOS, ECMState: switchStateONLINE)
+       
         if txtECM.text! == "" || txtATM.text! == "" || txtPOS.text! == "" {
-            print("please enter text")
-            let Alert: UIAlertView = UIAlertView()
-            Alert.delegate = self
-            Alert.title = "Raksha"
-            Alert.message = "Please enter a value for all 3 fields"
-            Alert.addButtonWithTitle("OK")
-            Alert.show()
-            
+            let alert = UIAlertController(title: "RAKSHA", message: "Please enter a value for all 3 fields", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+            // show the alert
+            self.presentViewController(alert, animated: true, completion: nil)
         }
-
     }
     
     @IBAction func btnCancelLimit(sender: AnyObject) {
@@ -281,7 +345,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         items?.append(flexSpace)
         items?.append(done)
         
-        
         doneToolbar.setItems(items, animated: true)
         doneToolbar.sizeToFit()
         txtATM.inputAccessoryView=doneToolbar
@@ -307,8 +370,56 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         txtATM.resignFirstResponder()
         txtPOS.resignFirstResponder()
         txtECM.resignFirstResponder()
-
     }
 
     
+    @IBAction func btnBackSpendLimit(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func btnLogoutSpendLimit(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
+   
+    
+    func logOutTapped(MobileNumber : String)
+    {
+        
+        Alamofire.request(.POST, "http://125.99.113.202:8777/LogOut", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                let JSON = response.result.value
+                print("JSON: \(JSON)")
+                let string: NSString = JSON as! NSString
+                print("string is " + (string as String))
+                
+                if string.containsString("Successful")
+                {
+                    print("Logout successful")
+                    let Alert: UIAlertView = UIAlertView()
+                    Alert.delegate = self
+                    Alert.title = "Raksha"
+                    Alert.message = "You have been logged out of Raksha."
+                    Alert.addButtonWithTitle("OK")
+                    Alert.show()
+                    
+                    let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+                    self.presentViewController(next, animated: true, completion: nil)
+                }
+                
+        }
+    }
+
+    
+    @IBAction func btnLogOutSpendLimit(sender: AnyObject) {
+        logOutTapped(defaults.stringForKey("moileNo")!)
+    }
 }

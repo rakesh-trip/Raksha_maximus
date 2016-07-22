@@ -93,6 +93,7 @@ class DashboardViewController: UIViewController , UITextViewDelegate {
         SwiftSpinner.showWithDuration(3.0, title: "Loading....", animated: true)
 
         print("passvalue : " + PassValue)
+        
 //            performSegueWithIdentifier("ltstTrans", sender: self)
 //        latestTransBtn.backgroundColor = UIColor.greenColor()
     }

@@ -42,4 +42,8 @@ class forgotTransactonpwViewController: UIViewController {
     }
     */
 
+    @IBAction func btnBackForgotTransPwd(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("settingsVC") as! SettingsViewController
+        self.presentViewController(next, animated: true, completion: nil)
+    }
 }

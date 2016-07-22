@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftSpinner
 
+let wsMethodChangePassword = "ChangePassword"
+let appendStringChangePassword = baseUrl + wsMethodChangePassword
+
 class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     let defaults = NSUserDefaults.standardUserDefaults()
 
@@ -61,7 +64,7 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
     func submitNewPasswordTapped(MobileNumber : String, NewPassword : String)
     {
 
-        Alamofire.request(.POST, "http://125.99.113.202:8777/ChangePassword", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "NewPassword":NewPassword])
+        Alamofire.request(.POST, appendStringChangePassword, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "NewPassword":NewPassword])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -133,6 +136,12 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
         txtpassword.text = ""
         txtConfirmPassword.text = ""
     }
+    
+    @IBAction func btnBackForgotPassword(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("settingsVC") as! SettingsViewController
+        self.presentViewController(next, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

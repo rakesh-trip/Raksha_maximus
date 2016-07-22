@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftSpinner
 
+let wsMethodPassword = "Password"
+let appendStringPassword = baseUrl + wsMethodPassword
+
 class PasswordViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate {
 let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var txtPassword: UITextField!
@@ -54,7 +57,7 @@ let defaults = NSUserDefaults.standardUserDefaults()
     func btnSubmitPasswordTapped(MobileNumber : String, Password : String)
     {
 
-        Alamofire.request(.POST, "http://125.99.113.202:8777/Password", parameters: ["DeviceReferenceID":DeviceReferenceID,"MobileNumber":defaults.stringForKey("mobileNo")!,"Password":Password])
+        Alamofire.request(.POST, appendStringPassword, parameters: ["DeviceReferenceID":DeviceReferenceID,"MobileNumber":defaults.stringForKey("mobileNo")!,"Password":Password])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

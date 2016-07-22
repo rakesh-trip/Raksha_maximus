@@ -8,6 +8,15 @@
 
 import UIKit
 import Alamofire
+import SwiftSpinner
+
+
+let wsMethodGetCustomerOperationsEDChannel = "GetCustomerOperations"
+let appendStringGetCustomerOperationsEDChannel = baseUrl + wsMethodGetCustomerOperationsEDChannel
+
+let wsMethodSetCustomerOperationsEDChannel = "SetCustomerOperations"
+let appendStringSetCustomerOperationsEDChannel = baseUrl + wsMethodSetCustomerOperationsEDChannel
+
 
 class EDChannelViewController: UIViewController {
 
@@ -37,7 +46,7 @@ class EDChannelViewController: UIViewController {
     {
         super.viewDidLoad()
         
-        Alamofire.request(.POST, "http://125.99.113.202:8777/GetCustomerOperations", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":edCard, "ServiceType":2])
+        Alamofire.request(.POST, appendStringGetCustomerOperationsEDChannel, parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":edCard, "ServiceType":2])
             .responseJSON { response in
                 
                 print(response.request)  // original URL request
@@ -181,7 +190,7 @@ class EDChannelViewController: UIViewController {
     
     func submitEDChannel(PAN: String, ATMValue : NSInteger, POSValue:NSInteger, ECMvalue:NSInteger, ServiceType: NSInteger)
     {
-        Alamofire.request(.POST, "http://125.99.113.202:8777/SetCustomerOperations", parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMValue":switchStateATM, "POSValue":switchStatePOS, "ECMValue":switchStateECM, "ServiceType":ServiceType])
+        Alamofire.request(.POST, appendStringSetCustomerOperationsEDChannel, parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMValue":switchStateATM, "POSValue":switchStatePOS, "ECMValue":switchStateECM, "ServiceType":ServiceType])
             .responseJSON { response in
                 
                 print(response.request)  // original URL request
@@ -192,6 +201,20 @@ class EDChannelViewController: UIViewController {
                 let JSON = response.result.value
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
+                if string.containsString("Successful")
+                {
+                    let alert = UIAlertController(title: "RAKSHA", message: "Request succesful", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                    // show the alert
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                else
+                {
+                    let alert = UIAlertController(title: "RAKSHA", message: "Failed, please try again later.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                    // show the alert
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
         }
     }
 
@@ -208,7 +231,48 @@ class EDChannelViewController: UIViewController {
         switchOnline.on = false
     }
 
+    @IBAction func btnBackEDChannel(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+        self.presentViewController(next, animated: true, completion: nil)
+    }
     
+    func logOutTapped(MobileNumber : String)
+    {
+        
+        Alamofire.request(.POST, "http://125.99.113.202:8777/LogOut", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                let JSON = response.result.value
+                print("JSON: \(JSON)")
+                let string: NSString = JSON as! NSString
+                print("string is " + (string as String))
+                
+                if string.containsString("Successful")
+                {
+                    print("Logout successful")
+                    let Alert: UIAlertView = UIAlertView()
+                    Alert.delegate = self
+                    Alert.title = "Raksha"
+                    Alert.message = "You have been logged out of Raksha."
+                    Alert.addButtonWithTitle("OK")
+                    Alert.show()
+                    
+                    let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+                    self.presentViewController(next, animated: true, completion: nil)
+                }
+                
+        }
+    }
+
+    
+    @IBAction func btnLogoutEDchannel(sender: AnyObject) {
+        logOutTapped(defaults.stringForKey("mobileNo")!)
+     
+    }
     /*
     // MARK: - Navigation
 

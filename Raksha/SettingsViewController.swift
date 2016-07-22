@@ -46,6 +46,17 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             controller.dismissViewControllerAnimated(true, completion: nil)
         }
 
+    @IBAction func btnChangePassword(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("forgotPasswordVC") as! ForgotPasswordView
+        self.presentViewController(next, animated: true, completion: nil)
+
+    }
+
+    @IBAction func btnChangeTransactionPassword(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("forgotTransactionPasswordVC") as! forgotTransactonpwViewController
+        self.presentViewController(next, animated: true, completion: nil)
+    }
+    
     @IBAction func btnFeedbackClicked(sender: AnyObject)
     {
         let mailComposeViewController = configuredMailComposeViewController()
@@ -65,6 +76,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
          */
     }
   
+    @IBAction func btnBackSetings(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
+        self.presentViewController(next, animated: true, completion: nil)
+//        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }
 
