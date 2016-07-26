@@ -115,7 +115,7 @@ let defaults = NSUserDefaults.standardUserDefaults()
             print("passwords match")
             SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
 
-            let next = self.storyboard?.instantiateViewControllerWithIdentifier("welcomePage") as! WelcomeViewController
+            let next = self.storyboard?.instantiateViewControllerWithIdentifier("transactionPasswordVC") as! TransactionPasswordViewController
             self.presentViewController(next, animated: true, completion: nil)
         }
         

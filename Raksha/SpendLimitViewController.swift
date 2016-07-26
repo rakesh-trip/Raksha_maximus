@@ -316,8 +316,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         
         alert.addAction(UIAlertAction (title: "Cancel", style: .Destructive, handler: nil))
         
-        //        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(actionSheetController) -> Void in self.submitEDCard(self.edCard, ATMValue: self.switchState, ServiceType: 1)}))
-        
         alert.addTextFieldWithConfigurationHandler({(TxtTansactionPwd: UITextField!) in
             TxtTansactionPwd.placeholder = "Enter your trnsaction Password"
             TxtTansactionPwd.minimumFontSize = 12
@@ -326,7 +324,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         })
         alert.view.backgroundColor = UIColor.grayColor()
         alert.view.layer.cornerRadius = 10
-        
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -373,7 +370,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         txtATM.inputAccessoryView=doneToolbar
         txtPOS.inputAccessoryView=doneToolbar
         txtECM.inputAccessoryView=doneToolbar
-
     }
     
     func doneButtonAction()
