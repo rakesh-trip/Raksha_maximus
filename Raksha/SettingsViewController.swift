@@ -22,8 +22,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+    //to configure email and send feedback....
             func configuredMailComposeViewController() -> MFMailComposeViewController {
             let mailComposerVC = MFMailComposeViewController()
             mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property

@@ -14,14 +14,12 @@ import SwiftSpinner
 
 
 let webServiceMethod = "ValidateCustomerDetailsForRegistration"
-let appendStringSignUp = baseUrl + webServiceMethod
+let appendStringSignUp = baseUrl + webServiceMethod //string URL webservice method to call
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, webServiceDelegate{
 var appdelegate:AppDelegate!
     
     let defaults = NSUserDefaults.standardUserDefaults()
-    
-    
     
     @IBOutlet weak var txtFieldMobileNo: UITextField!
     @IBOutlet weak var txtFieldCustId: UITextField!
@@ -90,6 +88,7 @@ var appdelegate:AppDelegate!
         }
     }
     
+    //func called when btnSumbitSignUp tapped for validation....
     func signUpTapped(MobileNumber : String, CustomerID : String)
     {
         SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)

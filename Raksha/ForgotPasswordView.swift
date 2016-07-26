@@ -11,7 +11,7 @@ import Alamofire
 import SwiftSpinner
 
 let wsMethodChangePassword = "ChangePassword"
-let appendStringChangePassword = baseUrl + wsMethodChangePassword
+let appendStringChangePassword = baseUrl + wsMethodChangePassword  //webservice method appended in string
 
 class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -61,9 +61,10 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
         txtConfirmPassword.resignFirstResponder()
         return true
     }
+    
+    //func called when btnSubmitPassword tapped for validation..
     func submitNewPasswordTapped(MobileNumber : String, NewPassword : String)
     {
-
         Alamofire.request(.POST, appendStringChangePassword, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "NewPassword":NewPassword])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -84,12 +85,10 @@ class ForgotPasswordView: UIViewController, UITextFieldDelegate, UIAlertViewDele
                                 let okAction = UIAlertAction(title: "Success!", style: .Default, handler: nil)
                                 alertView.addAction(okAction)
                                 self.presentViewController(alertView, animated: true, completion: nil)
-
                 }
                 else
                 {
                     SwiftSpinner.showWithDuration(2.0, title: "Error, please try again!!", animated: false)
-
                 }
                 
         }

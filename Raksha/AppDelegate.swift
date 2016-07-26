@@ -15,7 +15,7 @@ var systemName = UIDevice.currentDevice().systemName
 var deviceName = UIDevice.currentDevice().name
 
 let defaults = NSUserDefaults.standardUserDefaults()
-let MyKeychain = KeychainWrapper()
+let MyKeychain = KeychainWrapper() //API used to store passwords,keys,certificates etc...
 let MyKeychain1 = KeychainWrapper()
 var baseUrl = "http://125.99.113.202:8777/"
 

@@ -11,7 +11,7 @@ import Alamofire
 import SwiftSpinner
 
 let wsMethodValidateOTP = "ValidateOTP"
-let appendStringValidateOTP = baseUrl + wsMethodValidateOTP
+let appendStringValidateOTP = baseUrl + wsMethodValidateOTP //String url to call the Webservice method
 
 class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
 
@@ -57,6 +57,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, UIAlertViewDeleg
         view.endEditing(true)
     }
 
+    //function to call backend and check for validation OTP
     func submitOTPtapped(MobileNumber : String, OTP : String)
     {
 

@@ -11,7 +11,7 @@ import Alamofire
 import SwiftSpinner
 
 let wsMethodLogin = "Login"
-let appendStringLogin = baseUrl + wsMethodLogin
+let appendStringLogin = baseUrl + wsMethodLogin //string url for webservice method
 
 class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate{
 
@@ -63,11 +63,9 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         view.endEditing(true)
     }
     
+    //func called when logged in tapped button:btnLogin....
     func loginTapped(MobileNumber : String, Password : String)
     {
-        
-
-        print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
         SwiftSpinner.showWithDuration(2.0, title: "Loading", animated: true)
 
         Alamofire.request(.POST, appendStringLogin, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!, "Password":Password])
@@ -101,10 +99,10 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     {
 //        defaults.setObject(self.txtLoginPassword.text, forKey: "password")
 
-        let hashPassword = txtLoginPassword.text!.md5()
-        print(hashPassword)
-        defaults.setObject(hashPassword, forKey: "hashPassword")
-              
+//        let hashPassword = txtLoginPassword.text!.md5()
+//        print(hashPassword)
+//        defaults.setObject(hashPassword, forKey: "hashPassword")
+        
         if(txtLoginPassword.text! == "demo@123" ){
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
             self.presentViewController(next, animated: true, completion: nil)

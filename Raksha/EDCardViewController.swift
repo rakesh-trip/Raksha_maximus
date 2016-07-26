@@ -1,4 +1,4 @@
-//
+ //
 //  EDCardViewController.swift
 //  Raksha
 //
@@ -12,12 +12,12 @@ import SwiftSpinner
 
 
 let wsMethodGetCustomerOperations = "GetCustomerOperations"
-let appendStringGetCustomerOperations = baseUrl + wsMethodGetCustomerOperations
+let appendStringGetCustomerOperations = baseUrl + wsMethodGetCustomerOperations //webservice method appended in string
 
 let wsMethodSetCustomerOperations = "SetCustomerOperations"
-let appendStringSetCustomerOperations = baseUrl + wsMethodSetCustomerOperations
+let appendStringSetCustomerOperations = baseUrl + wsMethodSetCustomerOperations //webservice method appended in string
 
-class EDCardViewController: UIViewController {
+class EDCardViewController: UIViewController, UIAlertViewDelegate {
     
     
     @IBOutlet weak var lblName: UILabel!
@@ -64,6 +64,8 @@ class EDCardViewController: UIViewController {
         SwiftSpinner.showWithDuration(2.0, title: "Loading...", animated: true)
     }
     
+    
+    // in viewdid appear check for card status and set the status as per the webservice response
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         print("view did appear")
@@ -98,7 +100,7 @@ class EDCardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //func called when submit
     func submitEDCard(PAN: String, ATMValue : NSInteger, ServiceType: NSInteger)
     {
         Alamofire.request(.POST, appendStringSetCustomerOperations, parameters: ["DeviceReferenceID":DeviceReferenceID,"PAN":PAN, "ATMValue":switchState, "ServiceType":ServiceType])
@@ -112,30 +114,52 @@ class EDCardViewController: UIViewController {
                 let JSON = response.result.value
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
-        }
-    }
+                if string.containsString("Successful")
+                {
+                    SwiftSpinner.showWithDuration(2.0, title: "Request Sent...", animated: false)
+                }
+                else
+                {
+                    SwiftSpinner.showWithDuration(2.0, title: "Failed, please try later...", animated: false)
 
-    @IBAction func btnSubmitEDCardStatus(sender: AnyObject) {
-        print("ATMValue is  :" ,switchState)
-        submitEDCard(edCard, ATMValue: switchState, ServiceType: 1)
-        if switchState == 0 {
-            let Alert: UIAlertView = UIAlertView()
-            Alert.delegate = self
-            Alert.title = "Raksha"
-            Alert.message = "Card Disabled successfully."
-            Alert.addButtonWithTitle("OK")
-            Alert.show()
-        }
-        else
-        {
-            let Alert: UIAlertView = UIAlertView()
-            Alert.delegate = self
-            Alert.title = "Raksha"
-            Alert.message = "Card Enabled successfully."
-            Alert.addButtonWithTitle("OK")
-            Alert.show()
+                }
         }
     }
+    
+    func TransactionPwd() {
+        let alert = UIAlertController(title: "Raksha", message: "Transaction Password", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: {(actionSheetController) -> Void in
+            self.submitEDCard(self.edCard, ATMValue: self.switchState, ServiceType: 1)
+
+            switch actionSheetController.style{
+            case .Default:
+                print("Send")
+            default : print("Default")
+            }
+        }))
+        
+        alert.addAction(UIAlertAction (title: "Cancel", style: .Destructive, handler: nil))
+
+//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(actionSheetController) -> Void in self.submitEDCard(self.edCard, ATMValue: self.switchState, ServiceType: 1)}))
+        
+        alert.addTextFieldWithConfigurationHandler({(TxtTansactionPwd: UITextField!) in
+            TxtTansactionPwd.placeholder = "Enter your trnsaction Password"
+            TxtTansactionPwd.minimumFontSize = 12
+            TxtTansactionPwd.secureTextEntry = true
+            TxtTansactionPwd.textColor = UIColor.blackColor()
+        })
+                alert.view.backgroundColor = UIColor.grayColor()
+        alert.view.layer.cornerRadius = 10
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+   
+    @IBAction func btnSubmitEDCardStatus(sender: AnyObject) {
+//        submitEDCard(edCard, ATMValue: switchState, ServiceType: 1)
+        TransactionPwd()
+           }
 
     @IBAction func switchEdCard(sender: AnyObject)
     {
@@ -166,9 +190,9 @@ class EDCardViewController: UIViewController {
     }
     
     
+    //logout function
     func logOutTapped(MobileNumber : String)
     {
-        
         Alamofire.request(.POST, "http://125.99.113.202:8777/LogOut", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -194,7 +218,6 @@ class EDCardViewController: UIViewController {
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
                     self.presentViewController(next, animated: true, completion: nil)
                 }
-                
         }
     }
 

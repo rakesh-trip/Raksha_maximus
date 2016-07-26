@@ -301,21 +301,44 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
+      func TransactionPwd() {
+        let alert = UIAlertController(title: "Raksha", message: "Transaction Password", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: {(actionSheetController) -> Void in
+            self.submitSpendLimit(self.edCard, ATMLimit: self.txtATM.text!, POSLimit: self.txtPOS.text!, ECMLimit: self.txtECM.text!, ATMState: self.switchStateATM, POSState: self.switchStatePOS, ECMState: self.switchStateONLINE)
+            
+            switch actionSheetController.style{
+            case .Default:
+                print("Send")
+            default : print("Default")
+            }
+        }))
+        
+        alert.addAction(UIAlertAction (title: "Cancel", style: .Destructive, handler: nil))
+        
+        //        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(actionSheetController) -> Void in self.submitEDCard(self.edCard, ATMValue: self.switchState, ServiceType: 1)}))
+        
+        alert.addTextFieldWithConfigurationHandler({(TxtTansactionPwd: UITextField!) in
+            TxtTansactionPwd.placeholder = "Enter your trnsaction Password"
+            TxtTansactionPwd.minimumFontSize = 12
+            TxtTansactionPwd.secureTextEntry = true
+            TxtTansactionPwd.textColor = UIColor.blackColor()
+        })
+        alert.view.backgroundColor = UIColor.grayColor()
+        alert.view.layer.cornerRadius = 10
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     
     @IBAction func btnSubmitLimit(sender: AnyObject) {
-        print(txtATM.text!)
-        print(txtPOS.text!)
-        print(switchStateATM)
-        print(switchStatePOS)
-        print(switchStateONLINE)
-        submitSpendLimit(edCard, ATMLimit: txtATM.text!, POSLimit: txtPOS.text!, ECMLimit: txtECM.text!, ATMState: switchStateATM, POSState: switchStatePOS, ECMState: switchStateONLINE)
-       
         if txtECM.text! == "" || txtATM.text! == "" || txtPOS.text! == "" {
             let alert = UIAlertController(title: "RAKSHA", message: "Please enter a value for all 3 fields", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
             // show the alert
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        TransactionPwd()
     }
     
     @IBAction func btnCancelLimit(sender: AnyObject) {

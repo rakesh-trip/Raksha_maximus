@@ -34,7 +34,6 @@ class RegistrationViewController: UIViewController{
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        
          }
 
   

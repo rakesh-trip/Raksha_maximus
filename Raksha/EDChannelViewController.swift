@@ -207,6 +207,7 @@ class EDChannelViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
                     // show the alert
                     self.presentViewController(alert, animated: true, completion: nil)
+//                    SwiftSpinner.showWithDuration(2.0, title: "Request Sent.", animated: false)
                 }
                 else
                 {
@@ -217,12 +218,40 @@ class EDChannelViewController: UIViewController {
                 }
         }
     }
-
+    
+    
+    func TransactionPwd() {
+        let alert = UIAlertController(title: "Raksha", message: "Transaction Password", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: {(actionSheetController) -> Void in
+            self.submitEDChannel(self.edCard, ATMValue: self.switchStateATM, POSValue: self.switchStatePOS, ECMvalue: self.switchStateECM, ServiceType: 2)
+            switch actionSheetController.style{
+            case .Default:
+                print("Send")
+            default : print("Default")
+            }
+        }))
+        
+        alert.addAction(UIAlertAction (title: "Cancel", style: .Destructive, handler: nil))
+        
+        //        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(actionSheetController) -> Void in self.submitEDCard(self.edCard, ATMValue: self.switchState, ServiceType: 1)}))
+        
+        alert.addTextFieldWithConfigurationHandler({(TxtTansactionPwd: UITextField!) in
+            TxtTansactionPwd.placeholder = "Enter your trnsaction Password"
+            TxtTansactionPwd.minimumFontSize = 12
+            TxtTansactionPwd.secureTextEntry = true
+            TxtTansactionPwd.textColor = UIColor.blackColor()
+        })
+        alert.view.backgroundColor = UIColor.grayColor()
+        alert.view.layer.cornerRadius = 10
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     @IBAction func btnSubmitEDChannel(sender: AnyObject)
     {
-        submitEDChannel(edCard, ATMValue: switchStateATM, POSValue: switchStatePOS, ECMvalue: switchStateECM, ServiceType: 2)
-    }
+        TransactionPwd()
+            }
     
     @IBAction func btnCancelEDChannel(sender: AnyObject)
     {

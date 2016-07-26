@@ -11,7 +11,7 @@ import Alamofire
 import SwiftSpinner
 
 let wsMethodValidateMobileNumber = "ValidateMobileNumber"
-let appendStringValidateMobileNumber = baseUrl + wsMethodValidateMobileNumber
+let appendStringValidateMobileNumber = baseUrl + wsMethodValidateMobileNumber //webservice method appended in string
 
 
 class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
@@ -80,7 +80,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         }
     }
     
-    
+    //func called when button : sunsignin tapped...
     func signInTapped(MobileNumber : String)
     {
         Alamofire.request(.POST, appendStringValidateMobileNumber, parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":MobileNumber])

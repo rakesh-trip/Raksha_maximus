@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+//This class is not used now in the project, will try later
 
 @objc protocol webServiceDelegate
 {
