@@ -105,6 +105,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
                // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -131,9 +132,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.contentView.backgroundColor = UIColor.lightTextColor()
         
         let RoundedView : UIView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 149))
-        
         RoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.5, 0.2])
-
         RoundedView.layer.masksToBounds = false
         RoundedView.layer.cornerRadius = 2.0
         RoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
@@ -215,6 +214,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
+    
     @IBAction func btnBackSelectCard(sender: AnyObject) {
         let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
         self.presentViewController(next, animated: true, completion: nil)

@@ -65,8 +65,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     func loginTapped(MobileNumber : String, Password : String)
     {
-        
-
         print("mobile no is  : " + defaults.stringForKey("mobileNo")!)
         SwiftSpinner.showWithDuration(2.0, title: "Loading", animated: true)
 

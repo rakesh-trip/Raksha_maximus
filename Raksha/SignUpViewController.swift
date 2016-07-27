@@ -21,8 +21,6 @@ var appdelegate:AppDelegate!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    
-    
     @IBOutlet weak var txtFieldMobileNo: UITextField!
     @IBOutlet weak var txtFieldCustId: UITextField!
     

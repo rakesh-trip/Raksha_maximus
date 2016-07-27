@@ -114,8 +114,7 @@ class EDCardViewController: UIViewController {
                 print("string is " + (string as String))
         }
     }
-
-    @IBAction func btnSubmitEDCardStatus(sender: AnyObject) {
+    func SwitchEdCard() {
         print("ATMValue is  :" ,switchState)
         submitEDCard(edCard, ATMValue: switchState, ServiceType: 1)
         if switchState == 0 {
@@ -136,6 +135,32 @@ class EDCardViewController: UIViewController {
             Alert.show()
         }
     }
+    func TransactionPwd() {
+        let alert = UIAlertController(title: "Raksha", message: "Transaction Password", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: {(actionSheetController) -> Void in
+            self.SwitchEdCard()}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        
+        
+        alert.addTextFieldWithConfigurationHandler({(TxtTansactionPwd: UITextField!) in
+            TxtTansactionPwd.placeholder = "Enter your trnsaction Password"
+            TxtTansactionPwd.minimumFontSize = 12
+            TxtTansactionPwd.secureTextEntry = true
+            TxtTansactionPwd.textColor = UIColor.blackColor()
+            
+        })
+        
+        alert.view.backgroundColor = UIColor.grayColor()
+        alert.view.layer.cornerRadius = 10
+        self.presentViewController(alert, animated: true, completion: nil)
+
+        
+    }
+
+    @IBAction func btnSubmitEDCardStatus(sender: AnyObject) {
+        TransactionPwd() 
+           }
 
     @IBAction func switchEdCard(sender: AnyObject)
     {
