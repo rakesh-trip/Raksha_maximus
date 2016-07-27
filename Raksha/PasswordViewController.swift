@@ -11,7 +11,7 @@ import Alamofire
 import SwiftSpinner
 
 let wsMethodPassword = "Password"
-let appendStringPassword = baseUrl + wsMethodPassword
+let appendStringPassword = baseUrl + wsMethodPassword //url to call the Webservice method
 
 class PasswordViewController: UIViewController, UIAlertViewDelegate, UITextFieldDelegate {
 let defaults = NSUserDefaults.standardUserDefaults()
@@ -54,9 +54,9 @@ let defaults = NSUserDefaults.standardUserDefaults()
         view.endEditing(true)
     }
     
+    //func to call webservice validation on button click btnSubmitPassword....
     func btnSubmitPasswordTapped(MobileNumber : String, Password : String)
     {
-
         Alamofire.request(.POST, appendStringPassword, parameters: ["DeviceReferenceID":DeviceReferenceID,"MobileNumber":defaults.stringForKey("mobileNo")!,"Password":Password])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -115,7 +115,7 @@ let defaults = NSUserDefaults.standardUserDefaults()
             print("passwords match")
             SwiftSpinner.showWithDuration(2.0, title: "Loading....", animated: true)
 
-            let next = self.storyboard?.instantiateViewControllerWithIdentifier("welcomePage") as! WelcomeViewController
+            let next = self.storyboard?.instantiateViewControllerWithIdentifier("transactionPasswordVC") as! TransactionPasswordViewController
             self.presentViewController(next, animated: true, completion: nil)
         }
         

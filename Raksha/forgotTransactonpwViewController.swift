@@ -22,7 +22,6 @@ class forgotTransactonpwViewController: UIViewController {
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-
         // Do any additional setup after loading the view.
     }
 

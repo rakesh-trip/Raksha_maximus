@@ -6,6 +6,8 @@
 //  Copyright © 2016 maximus. All rights reserved.
 //
 
+
+//class to define custm cells in the app used in SelectCardVC and LatestTransactions VC
 import UIKit
 
 class CustomCell: UITableViewCell {

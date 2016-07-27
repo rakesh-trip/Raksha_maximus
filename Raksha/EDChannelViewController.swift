@@ -207,6 +207,7 @@ class EDChannelViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
                     // show the alert
                     self.presentViewController(alert, animated: true, completion: nil)
+//                    SwiftSpinner.showWithDuration(2.0, title: "Request Sent.", animated: false)
                 }
                 else
                 {

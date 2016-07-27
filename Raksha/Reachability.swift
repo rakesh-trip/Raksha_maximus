@@ -6,6 +6,8 @@
 //  Copyright © 2016 maximus. All rights reserved.
 //
 
+
+// Used to detect netwrk connectivity throughout the application
 import Foundation
 import SystemConfiguration
 
