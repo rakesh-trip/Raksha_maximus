@@ -123,6 +123,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
                         self.switchOnlineLimit.on = false
                         self.switchStateONLINE = "false"
                         self.txtECM.hidden = true
+                        
                     }
 
                     let posValue = self.Response.valueForKey("POS")
