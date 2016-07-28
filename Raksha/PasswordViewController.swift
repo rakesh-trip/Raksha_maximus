@@ -38,9 +38,9 @@ let defaults = NSUserDefaults.standardUserDefaults()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        if let mobileNo = defaults.stringForKey("mobileNo")
+        if defaults.stringForKey("mobileNo") != nil
         {
-            print("The user has a mobile number defined " + mobileNo)
+            print("The user has a mobile number defined " + defaults.stringForKey("mobileNo")!)
         }
     }
 
@@ -87,7 +87,8 @@ let defaults = NSUserDefaults.standardUserDefaults()
             self.presentViewController(next, animated: true, completion: nil)
         }
         
-        MyKeychain.mySetObject(self.txtPassword.text, forKey: kSecValueData)
+        MyKeychain.mySetObject(self.txtPassword.text, forKey: kSecClass)
+
         MyKeychain1.mySetObject(self.txtPasswordConfirm.text, forKey: kSecValueData)
 
         print(MyKeychain.myObjectForKey(kSecValueData))

@@ -42,8 +42,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-
-
         // Do any additional setup after loading the view.
     }
 
@@ -65,7 +63,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     }
     
     func phoneNumberValidation(value: String) -> Bool {
-        
         if (value.characters.count) > 6
         {
             let charcter  = NSCharacterSet(charactersInString: "0123456789").invertedSet
@@ -102,7 +99,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         if string.containsString("Successful")
         {
             print("Repeated user")
-            
+
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("otp_verify") as! OTPViewController
             self.presentViewController(next, animated: true, completion: nil)
         }

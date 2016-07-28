@@ -224,7 +224,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func logOutTapped(MobileNumber : String)
     {
-        
         Alamofire.request(.POST, "http://125.99.113.202:8777/LogOut", parameters: ["DeviceReferenceID":DeviceReferenceID, "MobileNumber":defaults.stringForKey("mobileNo")!])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -250,7 +249,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
                     self.presentViewController(next, animated: true, completion: nil)
                 }
-                
         }
     }
 

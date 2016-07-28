@@ -98,11 +98,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     
     @IBAction func btnLogin(sender: AnyObject)
     {
-//        defaults.setObject(self.txtLoginPassword.text, forKey: "password")
-
-//        let hashPassword = txtLoginPassword.text!.md5()
-//        print(hashPassword)
-//        defaults.setObject(hashPassword, forKey: "hashPassword")
         
         if(txtLoginPassword.text! == "demo@123" ){
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController

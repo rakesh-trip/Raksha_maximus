@@ -243,7 +243,7 @@ class EDChannelViewController: UIViewController {
     @IBAction func btnSubmitEDChannel(sender: AnyObject)
     {
         TransactionPwd()
-            }
+    }
     
     @IBAction func btnCancelEDChannel(sender: AnyObject)
     {

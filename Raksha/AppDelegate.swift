@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import CryptoSwift
 
 var DeviceReferenceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
 var systemVersion = UIDevice.currentDevice().systemVersion
@@ -24,10 +25,9 @@ var timer = NSTimer()
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var isReachable:Bool!
     var window: UIWindow?
-    
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-      
+   
+       func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+                
         print(systemVersion)
         print(systemName)
         print(deviceName)
@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             print("The user has a mobile number defined " + mobileNo)
         }
+        
         if let hashPassword = defaults.stringForKey("hashPassword")
         {
             print("The user has a hashPassword defined " + hashPassword)
