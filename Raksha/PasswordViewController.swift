@@ -87,6 +87,9 @@ let defaults = NSUserDefaults.standardUserDefaults()
             self.presentViewController(next, animated: true, completion: nil)
         }
         
+        defaults.setObject(self.txtPassword.text, forKey: "hashPassword")
+
+        
         MyKeychain.mySetObject(self.txtPassword.text, forKey: kSecClass)
 
         MyKeychain1.mySetObject(self.txtPasswordConfirm.text, forKey: kSecValueData)

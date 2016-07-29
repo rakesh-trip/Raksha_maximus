@@ -54,10 +54,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             print("The user has a mobile number defined " + mobileNo)
         }
-        
+        if let hashPasswordLogin = defaults.stringForKey("hashPasswordLogin")
+        {
+            print("The user has a hashPasswordLogin * * * * * *  " + hashPasswordLogin)
+            print(hashPasswordLogin.md5())
+        }
+
         if let hashPassword = defaults.stringForKey("hashPassword")
         {
-            print("The user has a hashPassword defined " + hashPassword)
+            print("The user has a hashPassword in appdelegate " + hashPassword)
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)

@@ -97,9 +97,7 @@ class TransactionPasswordViewController: UIViewController, UITextFieldDelegate {
         
         if (txtTransPassword.text?.characters.count != 4) {
             SwiftSpinner.showWithDuration(2.0, title: "Please enter atleast 4 characters", animated: false)
-            
         }
-        
         
         if (txtTransPassword.text == txtConfirmTransPassword.text)
         {
@@ -109,7 +107,6 @@ class TransactionPasswordViewController: UIViewController, UITextFieldDelegate {
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("welcomeVC") as! WelcomeViewController
             self.presentViewController(next, animated: true, completion: nil)
         }
-            
         else
         {
             print("passwords dont match")

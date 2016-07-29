@@ -121,11 +121,13 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell : CustomCell! = tableView.dequeueReusableCellWithIdentifier("cell") as! CustomCell
         print("\(indexPath)")
     
-        let strTitle : NSString = Response[indexPath.row] .valueForKey("CustomerName") as! NSString
+        
+        cell.lblName.text = Response[indexPath.row].valueForKey("CustomerName") as? String
+//        let strTitle : NSString = Response[indexPath.row] .valueForKey("CustomerName") as! NSString
         let strTitle2 : NSString=Response[indexPath.row] .valueForKey("CardNumber") as! NSString
         let strTitle3 : NSString = Response[indexPath.row] .valueForKey("CardExpiry") as! NSString
         
-        cell.lblName.text = strTitle as String
+//        cell.lblName.text = strTitle as String
         cell.lblCard.text = strTitle2.description
         cell.lblexpDate.text = strTitle3 as String
         

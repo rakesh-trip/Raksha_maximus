@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Darwin
 import CryptoSwift
 import Alamofire
 import SwiftSpinner
@@ -28,10 +27,10 @@ var appdelegate:AppDelegate!
         // Do any additional setup after loading the view.
         super.viewDidLoad()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(SignUpViewController.terminateApp), userInfo: nil, repeats: true)
-        let resetTimer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.resetTimer));
-        self.view.userInteractionEnabled = true
-        self.view.addGestureRecognizer(resetTimer)
+//        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(SignUpViewController.terminateApp), userInfo: nil, repeats: true)
+//        let resetTimer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.resetTimer));
+//        self.view.userInteractionEnabled = true
+//        self.view.addGestureRecognizer(resetTimer)
         
         txtFieldMobileNo.delegate = self
         txtFieldCustId.delegate = self
@@ -62,14 +61,14 @@ var appdelegate:AppDelegate!
         super.viewDidAppear(animated)
         
     }
-
-    func terminateApp(){
-        // Do your segue and invalidate the timer
-        print("in terminateapp")
-        SwiftSpinner.showWithDuration(3.0, title: "You haven't used the app for 2 minutes, do you wish to Logout?", animated: false)
-        
-//               timer.invalidate()
-           }
+//
+//    func terminateApp(){
+//        // Do your segue and invalidate the timer
+//        print("in terminateapp")
+//        SwiftSpinner.showWithDuration(3.0, title: "You haven't used the app for 2 minutes, do you wish to Logout?", animated: false)
+//        
+////               timer.invalidate()
+//           }
     
 //    func alert(alert: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
 //        switch buttonIndex {
@@ -81,12 +80,12 @@ var appdelegate:AppDelegate!
 //            }
 //    }
 
-    func resetTimer(){
-        // invaldidate the current timer and start a new one
-        timer.invalidate()
-        print("in reset timer")
-        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(SignUpViewController.terminateApp), userInfo: nil, repeats: true)
-    }
+//    func resetTimer(){
+//        // invaldidate the current timer and start a new one
+//        timer.invalidate()
+//        print("in reset timer")
+//        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(SignUpViewController.terminateApp), userInfo: nil, repeats: true)
+//    }
 
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
@@ -230,7 +229,7 @@ var appdelegate:AppDelegate!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }  
+    }
     */
     
     @IBAction func btnBackSignUp(sender: AnyObject) {
