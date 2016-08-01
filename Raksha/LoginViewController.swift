@@ -101,6 +101,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         defaults.setObject(self.txtLoginPassword.text, forKey: "hashPasswordLogin")
         let abc = self.txtLoginPassword.text
             print(abc?.md5())
+        
         if(txtLoginPassword.text! == "demo@123" ){
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
             self.presentViewController(next, animated: true, completion: nil)

@@ -80,7 +80,6 @@ let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBAction func btnSubmitPassword(sender: AnyObject)
     {
-        
         if(txtPassword.text! == "demo@123" && txtPasswordConfirm.text! == "demo@123"){
             
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
@@ -89,7 +88,6 @@ let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setObject(self.txtPassword.text, forKey: "hashPassword")
 
-        
         MyKeychain.mySetObject(self.txtPassword.text, forKey: kSecClass)
 
         MyKeychain1.mySetObject(self.txtPasswordConfirm.text, forKey: kSecValueData)

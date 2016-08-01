@@ -209,7 +209,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
             enDbCard.expiryDate = sendexpDate as String
             enDbCard.userName = sendUserName as String
         }
-
         else
         {
             print("please check your code")
@@ -220,7 +219,6 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func btnBackSelectCard(sender: AnyObject) {
         let next = self.storyboard?.instantiateViewControllerWithIdentifier("dashboardVC") as! DashboardViewController
         self.presentViewController(next, animated: true, completion: nil)
-
     }
     
     
@@ -237,7 +235,7 @@ class SelectCardViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("JSON: \(JSON)")
                 let string: NSString = JSON as! NSString
                 print("string is " + (string as String))
-                
+            
                 if string.containsString("Successful")
                 {
                     print("Logout successful")

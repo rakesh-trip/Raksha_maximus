@@ -31,7 +31,6 @@ var appdelegate:AppDelegate!
 //        let resetTimer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.resetTimer));
 //        self.view.userInteractionEnabled = true
 //        self.view.addGestureRecognizer(resetTimer)
-        
         txtFieldMobileNo.delegate = self
         txtFieldCustId.delegate = self
         defaults.setObject("1", forKey: "appRaksha")

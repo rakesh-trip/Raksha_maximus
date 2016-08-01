@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftSpinner
 
+
 let wsMethodValidateOTP = "ValidateOTP"
 let appendStringValidateOTP = baseUrl + wsMethodValidateOTP //String url to call the Webservice method
 

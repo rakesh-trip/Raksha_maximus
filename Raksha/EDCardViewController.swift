@@ -121,7 +121,6 @@ class EDCardViewController: UIViewController, UIAlertViewDelegate {
                 else
                 {
                     SwiftSpinner.showWithDuration(2.0, title: "Failed, please try later...", animated: false)
-
                 }
         }
     }
@@ -153,20 +152,16 @@ class EDCardViewController: UIViewController, UIAlertViewDelegate {
             self.SwitchEdCard()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
         
-        
         alert.addTextFieldWithConfigurationHandler({(TxtTansactionPwd: UITextField!) in
             TxtTansactionPwd.placeholder = "Enter your trnsaction Password"
             TxtTansactionPwd.minimumFontSize = 12
             TxtTansactionPwd.secureTextEntry = true
             TxtTansactionPwd.textColor = UIColor.blackColor()
-            
         })
         
         alert.view.backgroundColor = UIColor.grayColor()
         alert.view.layer.cornerRadius = 10
         self.presentViewController(alert, animated: true, completion: nil)
-
-        
     }
 
     @IBAction func btnSubmitEDCardStatus(sender: AnyObject) {

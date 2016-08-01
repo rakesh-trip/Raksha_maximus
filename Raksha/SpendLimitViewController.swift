@@ -51,7 +51,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         txtPOS.delegate = self
         txtECM.delegate = self
 //        self.addDoneButtonOnKeyboard()
-
         if Reachability.isConnectedToNetwork() == true
         {
             print("Internet Connection OK")
@@ -165,6 +164,17 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let inverseSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+        let components = string.componentsSeparatedByCharactersInSet(inverseSet)
+        let filtered = components.joinWithSeparator("")
+        print(filtered)
+        
+        return string == filtered && string.characters.count == 5
+    }
+    
+    
     func convertStringToDictionary(text: String) -> [String:AnyObject]? {
         if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
             do {
@@ -180,7 +190,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -269,6 +278,7 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
             txtPOS.hidden = true
 
             txtPOS.text = "0"
+            txtPOS.text?.isEmpty
             print(txtPOS.text)
             let alert = UIAlertController(title: "RAKSHA", message: "Transaction Amount will be set to default as regulated by the bank.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -342,7 +352,8 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnSubmitLimit(sender: AnyObject) {
-        TransactionPwd()
+               TransactionPwd()
+
             }
     
     @IBAction func btnCancelLimit(sender: AnyObject) {
@@ -440,7 +451,6 @@ class SpendLimitViewController: UIViewController, UITextFieldDelegate {
                     let next = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
                     self.presentViewController(next, animated: true, completion: nil)
                 }
-                
         }
     }
 
